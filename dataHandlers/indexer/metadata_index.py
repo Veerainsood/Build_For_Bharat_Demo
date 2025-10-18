@@ -5,7 +5,7 @@ from typing import Dict
 
 class MetadataIndex:
     """Manages local DuckDB index of dataset metadata."""
-    def __init__(self, db_path="DataHandlers/data/ogdp_index.db"):
+    def __init__(self, db_path="dataHandlers/data/ogdp_index.db"):
         Path(db_path).parent.mkdir(parents=True, exist_ok=True)
         self.con = duckdb.connect(db_path)
         self.con.execute("""

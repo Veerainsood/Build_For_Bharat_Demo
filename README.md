@@ -42,17 +42,17 @@ pip install duckdb requests pandas
 ```
 ### 2️⃣ Run the scraper
 ```bash
-python -m DataHandlers.demo.demo_scraper
+python -m dataHandlers.demo.demo_scraper
 ```
 This populates `data/ogdp_index.db` with live datasets from both ministries.
 
 ### 3️⃣ Query datasets
 ```bash
-python -m DataHandlers.connectors.temp
+python -m dataHandlers.connectors.temp
 ```
 or
 ```python
-from DataHandlers.indexer.dataset_selector import DatasetSelector
+from dataHandlers.indexer.dataset_selector import DatasetSelector
 
 selector = DatasetSelector()
 results = selector.search("rainfall data 2025", limit=5)

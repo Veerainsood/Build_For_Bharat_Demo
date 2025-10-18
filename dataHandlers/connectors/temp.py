@@ -1,4 +1,4 @@
-from DataHandlers.indexer.dataset_selector import DatasetSelector
+from dataHandlers.indexer.dataset_selector import DatasetSelector
 
 selector = DatasetSelector()
 

@@ -1,0 +1,36 @@
+Note I copied these from agriculture to Earth Sciences....
+{
+    "id": "https://data.gov.in/files/ogd20/ogdpv2dms/s3fs-public/datafile/District_Rainfall_Normal_0.xls",
+    "title": "District Rainfall Normal (in mm) Monthly, Seasonal And Annual : Data Period 1951-2000"
+},
+{
+    "id": "https://data.gov.in/files/ogd20/ogdpv2dms/s3fs-public/datafile/Area_Weighted_Monthly_Seasonal_And_Annual_Rainfall_0.xls",
+    "title": "Area Weighted Monthly, Seasonal And Annual Rainfall (in mm) For 36 Meteorological Subdivisions"
+},
+{
+    "id": "https://data.gov.in/files/ogd20/ogdpv2dms/s3fs-public/datafile/All_India_Area_Weighted_Monthly_Seasonal_And_Annual_Rainfall.xls",
+    "title": "All India Area Weighted Monthly, Seasonal And Annual Rainfall (in mm)"
+} {
+    "id": "https://data.gov.in/files/ogd20/ogdpv2dms/s3fs-public/datafile/DEP_STORM_DATA_1.csv",
+    "title": "Number of Depressions/Deep Depressions Formed Over the North Indian Ocean"
+},
+{
+    "id": "https://data.gov.in/files/ogd20/ogdpv2dms/s3fs-public/datafile/CS_STORM_DATA_1.csv",
+    "title": "Number of Cyclonic Storms/Severe Cyclonic Storms formed over the North Indian Ocean"
+},
+{
+    "id": "https://data.gov.in/files/ogd20/ogdpv2dms/s3fs-public/datafile/Mean_Temperatures_India1901-2012.csv",
+    "title": "Annual And Seasonal Mean Temperature Of India"
+},
+{
+    "id": "https://data.gov.in/files/ogd20/ogdpv2dms/s3fs-public/datafile/India_Max_Temperatures_1901-2012_1.xls",
+    "title": "Annual And Seasonal Maximum Temperature Of India"
+},
+{
+    "id": "https://data.gov.in/files/ogd20/ogdpv2dms/s3fs-public/datafile/India_Min_Temperatures_1901-2012_1.xls",
+    "title": "Annual And Seasonal Minimum Temperature Of India"
+},
+
+then I renamed earth sciences to temprature and rainfall.
+
+and the agriculture is seperated under pm-kissan and its cleanly indexed acc to states and Tenure... and year....

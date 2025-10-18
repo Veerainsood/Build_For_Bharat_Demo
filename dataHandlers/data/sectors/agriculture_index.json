@@ -1,0 +1,50 @@
+{
+  "meta": {
+    "template": "https://exlink.pmkisan.gov.in/services/GovDataDetails.asmx/GetPMKIsanDatagov",
+    "fields": [
+      "state",
+      "district",
+      "year",
+      "installment"
+    ],
+    "variants": 6813
+  },
+  "states": {
+    "Karnataka": "dataHandlers/data/sectors/agriculture/karnataka.json",
+    "Punjab": "dataHandlers/data/sectors/agriculture/punjab.json",
+    "Sikkim": "dataHandlers/data/sectors/agriculture/sikkim.json",
+    "Uttarakhand": "dataHandlers/data/sectors/agriculture/uttarakhand.json",
+    "Odisha": "dataHandlers/data/sectors/agriculture/odisha.json",
+    "Andhra Pradesh": "dataHandlers/data/sectors/agriculture/andhra_pradesh.json",
+    "Tamil Nadu": "dataHandlers/data/sectors/agriculture/tamil_nadu.json",
+    "Gujarat": "dataHandlers/data/sectors/agriculture/gujarat.json",
+    "Kerala": "dataHandlers/data/sectors/agriculture/kerala.json",
+    "Chhattisgarh": "dataHandlers/data/sectors/agriculture/chhattisgarh.json",
+    "Maharashtra": "dataHandlers/data/sectors/agriculture/maharashtra.json",
+    "Haryana": "dataHandlers/data/sectors/agriculture/haryana.json",
+    "Bihar": "dataHandlers/data/sectors/agriculture/bihar.json",
+    "Assam": "dataHandlers/data/sectors/agriculture/assam.json",
+    "Meghalaya": "dataHandlers/data/sectors/agriculture/meghalaya.json",
+    "Tripura": "dataHandlers/data/sectors/agriculture/tripura.json",
+    "Jammu & Kashmir": "dataHandlers/data/sectors/agriculture/jammu_and_kashmir.json",
+    "Mizoram": "dataHandlers/data/sectors/agriculture/mizoram.json",
+    "Manipur": "dataHandlers/data/sectors/agriculture/manipur.json",
+    "Nagaland": "dataHandlers/data/sectors/agriculture/nagaland.json",
+    "Arunachal Pradesh": "dataHandlers/data/sectors/agriculture/arunachal_pradesh.json",
+    "Rajasthan": "dataHandlers/data/sectors/agriculture/rajasthan.json",
+    "Delhi": "dataHandlers/data/sectors/agriculture/delhi.json",
+    "Himachal Pradesh": "dataHandlers/data/sectors/agriculture/himachal_pradesh.json",
+    "Chandigarh": "dataHandlers/data/sectors/agriculture/chandigarh.json",
+    "Uttar Pradesh": "dataHandlers/data/sectors/agriculture/uttar_pradesh.json",
+    "Madhya Pradesh": "dataHandlers/data/sectors/agriculture/madhya_pradesh.json",
+    "Goa": "dataHandlers/data/sectors/agriculture/goa.json",
+    "Lakshadweep": "dataHandlers/data/sectors/agriculture/lakshadweep.json",
+    "Dadra and Nagar Haveli and Daman and Diu": "dataHandlers/data/sectors/agriculture/dadra_and_nagar_haveli_and_daman_and_diu.json",
+    "Telangana": "dataHandlers/data/sectors/agriculture/telangana.json",
+    "Ladakh": "dataHandlers/data/sectors/agriculture/ladakh.json",
+    "Andaman & Nicobar Islands": "dataHandlers/data/sectors/agriculture/andaman_and_nicobar_islands.json",
+    "Puducherry": "dataHandlers/data/sectors/agriculture/puducherry.json",
+    "Jharkhand": "dataHandlers/data/sectors/agriculture/jharkhand.json",
+    "West Bengal": "dataHandlers/data/sectors/agriculture/west_bengal.json"
+  }
+}
