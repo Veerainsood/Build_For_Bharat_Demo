@@ -1,0 +1,5 @@
+FROM /home/kripaludas/.ollama/models/blobs/capybarahermes-2.5-mistral-7b.Q4_K_M.gguf
+TEMPLATE """{{ .Prompt }}"""
+PARAMETER temperature 0.7
+PARAMETER top_p 0.9
+PARAMETER num_ctx 4096

@@ -1,0 +1,50 @@
+{
+  "meta": {
+    "template": "https://exlink.pmkisan.gov.in/services/GovDataDetails.asmx/GetPMKIsanDatagov",
+    "fields": [
+      "state",
+      "district",
+      "year",
+      "installment"
+    ],
+    "variants": 9182
+  },
+  "states": {
+    "Odisha": "dataHandlers/data/sectors/Beneficiaries_(PM_KISAN)/odisha.json",
+    "Chhattisgarh": "dataHandlers/data/sectors/Beneficiaries_(PM_KISAN)/chhattisgarh.json",
+    "Jharkhand": "dataHandlers/data/sectors/Beneficiaries_(PM_KISAN)/jharkhand.json",
+    "West Bengal": "dataHandlers/data/sectors/Beneficiaries_(PM_KISAN)/west_bengal.json",
+    "Assam": "dataHandlers/data/sectors/Beneficiaries_(PM_KISAN)/assam.json",
+    "Meghalaya": "dataHandlers/data/sectors/Beneficiaries_(PM_KISAN)/meghalaya.json",
+    "Manipur": "dataHandlers/data/sectors/Beneficiaries_(PM_KISAN)/manipur.json",
+    "Bihar": "dataHandlers/data/sectors/Beneficiaries_(PM_KISAN)/bihar.json",
+    "Mizoram": "dataHandlers/data/sectors/Beneficiaries_(PM_KISAN)/mizoram.json",
+    "Tripura": "dataHandlers/data/sectors/Beneficiaries_(PM_KISAN)/tripura.json",
+    "Rajasthan": "dataHandlers/data/sectors/Beneficiaries_(PM_KISAN)/rajasthan.json",
+    "Delhi": "dataHandlers/data/sectors/Beneficiaries_(PM_KISAN)/delhi.json",
+    "Haryana": "dataHandlers/data/sectors/Beneficiaries_(PM_KISAN)/haryana.json",
+    "Uttarakhand": "dataHandlers/data/sectors/Beneficiaries_(PM_KISAN)/uttarakhand.json",
+    "Punjab": "dataHandlers/data/sectors/Beneficiaries_(PM_KISAN)/punjab.json",
+    "Himachal Pradesh": "dataHandlers/data/sectors/Beneficiaries_(PM_KISAN)/himachal_pradesh.json",
+    "Jammu & Kashmir": "dataHandlers/data/sectors/Beneficiaries_(PM_KISAN)/jammu_and_kashmir.json",
+    "Uttar Pradesh": "dataHandlers/data/sectors/Beneficiaries_(PM_KISAN)/uttar_pradesh.json",
+    "Telangana": "dataHandlers/data/sectors/Beneficiaries_(PM_KISAN)/telangana.json",
+    "Dadra and Nagar Haveli and Daman and Diu": "dataHandlers/data/sectors/Beneficiaries_(PM_KISAN)/dadra_and_nagar_haveli_and_daman_and_diu.json",
+    "Puducherry": "dataHandlers/data/sectors/Beneficiaries_(PM_KISAN)/puducherry.json",
+    "Tamil Nadu": "dataHandlers/data/sectors/Beneficiaries_(PM_KISAN)/tamil_nadu.json",
+    "Kerala": "dataHandlers/data/sectors/Beneficiaries_(PM_KISAN)/kerala.json",
+    "Karnataka": "dataHandlers/data/sectors/Beneficiaries_(PM_KISAN)/karnataka.json",
+    "Lakshadweep": "dataHandlers/data/sectors/Beneficiaries_(PM_KISAN)/lakshadweep.json",
+    "Andhra Pradesh": "dataHandlers/data/sectors/Beneficiaries_(PM_KISAN)/andhra_pradesh.json",
+    "Maharashtra": "dataHandlers/data/sectors/Beneficiaries_(PM_KISAN)/maharashtra.json",
+    "Gujarat": "dataHandlers/data/sectors/Beneficiaries_(PM_KISAN)/gujarat.json",
+    "Madhya Pradesh": "dataHandlers/data/sectors/Beneficiaries_(PM_KISAN)/madhya_pradesh.json",
+    "Nagaland": "dataHandlers/data/sectors/Beneficiaries_(PM_KISAN)/nagaland.json",
+    "Sikkim": "dataHandlers/data/sectors/Beneficiaries_(PM_KISAN)/sikkim.json",
+    "Arunachal Pradesh": "dataHandlers/data/sectors/Beneficiaries_(PM_KISAN)/arunachal_pradesh.json",
+    "Ladakh": "dataHandlers/data/sectors/Beneficiaries_(PM_KISAN)/ladakh.json",
+    "Andaman & Nicobar Islands": "dataHandlers/data/sectors/Beneficiaries_(PM_KISAN)/andaman_and_nicobar_islands.json",
+    "Goa": "dataHandlers/data/sectors/Beneficiaries_(PM_KISAN)/goa.json",
+    "Chandigarh": "dataHandlers/data/sectors/Beneficiaries_(PM_KISAN)/chandigarh.json"
+  }
+}

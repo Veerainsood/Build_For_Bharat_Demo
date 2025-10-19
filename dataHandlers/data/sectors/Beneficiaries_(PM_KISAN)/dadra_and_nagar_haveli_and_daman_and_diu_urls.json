@@ -1,0 +1,62 @@
+{
+  "PM-KISAN-Urls": {
+    "Diu:2023-24[15th]": [
+      "https://exlink.pmkisan.gov.in/services/GovDataDetails.asmx/GetPMKIsanDatagov?FinYearID=6&TrimesterNo=2&StateCode=38&Distric=464&TokenNo=FHGBHFYBT268Gpf37hmJ6RY"
+    ],
+    "Diu:2022-23[11th,12th,13th]": [
+      "https://exlink.pmkisan.gov.in/services/GovDataDetails.asmx/GetPMKIsanDatagov?FinYearID=5&TrimesterNo=3&StateCode=38&Distric=464&TokenNo=FHGBHFYBT268Gpf37hmJ6RY",
+      "https://exlink.pmkisan.gov.in/services/GovDataDetails.asmx/GetPMKIsanDatagov?FinYearID=5&TrimesterNo=2&StateCode=38&Distric=464&TokenNo=FHGBHFYBT268Gpf37hmJ6RY",
+      "https://exlink.pmkisan.gov.in/services/GovDataDetails.asmx/GetPMKIsanDatagov?FinYearID=5&TrimesterNo=1&StateCode=38&Distric=464&TokenNo=FHGBHFYBT268Gpf37hmJ6RY"
+    ],
+    "Diu:2020-21[5th,6th,7th]": [
+      "https://exlink.pmkisan.gov.in/services/GovDataDetails.asmx/GetPMKIsanDatagov?FinYearID=3&TrimesterNo=3&StateCode=38&Distric=464&TokenNo=FHGBHFYBT268Gpf37hmJ6RY",
+      "https://exlink.pmkisan.gov.in/services/GovDataDetails.asmx/GetPMKIsanDatagov?FinYearID=3&TrimesterNo=1&StateCode=38&Distric=464&TokenNo=FHGBHFYBT268Gpf37hmJ6RY",
+      "https://exlink.pmkisan.gov.in/services/GovDataDetails.asmx/GetPMKIsanDatagov?FinYearID=3&TrimesterNo=2&StateCode=38&Distric=464&TokenNo=FHGBHFYBT268Gpf37hmJ6RY"
+    ],
+    "Diu:2019-20[2th,3th,4th]": [
+      "https://exlink.pmkisan.gov.in/services/GovDataDetails.asmx/GetPMKIsanDatagov?FinYearID=2&TrimesterNo=3&StateCode=38&Distric=464&TokenNo=FHGBHFYBT268Gpf37hmJ6RY",
+      "https://exlink.pmkisan.gov.in/services/GovDataDetails.asmx/GetPMKIsanDatagov?FinYearID=2&TrimesterNo=2&StateCode=38&Distric=464&TokenNo=FHGBHFYBT268Gpf37hmJ6RY",
+      "https://exlink.pmkisan.gov.in/services/GovDataDetails.asmx/GetPMKIsanDatagov?FinYearID=2&TrimesterNo=1&StateCode=38&Distric=464&TokenNo=FHGBHFYBT268Gpf37hmJ6RY"
+    ],
+    "Diu:2021-22[9th,10th]": [
+      "https://exlink.pmkisan.gov.in/services/GovDataDetails.asmx/GetPMKIsanDatagov?FinYearID=4&TrimesterNo=2&StateCode=38&Distric=464&TokenNo=FHGBHFYBT268Gpf37hmJ6RY",
+      "https://exlink.pmkisan.gov.in/services/GovDataDetails.asmx/GetPMKIsanDatagov?FinYearID=4&TrimesterNo=3&StateCode=38&Distric=464&TokenNo=FHGBHFYBT268Gpf37hmJ6RY"
+    ],
+    "Dadra and Nagar Haveli:2022-23[11th,12th]": [
+      "https://exlink.pmkisan.gov.in/services/GovDataDetails.asmx/GetPMKIsanDatagov?FinYearID=5&TrimesterNo=2&StateCode=38&Distric=465&TokenNo=FHGBHFYBT268Gpf37hmJ6RY",
+      "https://exlink.pmkisan.gov.in/services/GovDataDetails.asmx/GetPMKIsanDatagov?FinYearID=5&TrimesterNo=1&StateCode=38&Distric=465&TokenNo=FHGBHFYBT268Gpf37hmJ6RY"
+    ],
+    "Dadra and Nagar Haveli:2020-21[5th,6th,7th]": [
+      "https://exlink.pmkisan.gov.in/services/GovDataDetails.asmx/GetPMKIsanDatagov?FinYearID=3&TrimesterNo=3&StateCode=38&Distric=465&TokenNo=FHGBHFYBT268Gpf37hmJ6RY",
+      "https://exlink.pmkisan.gov.in/services/GovDataDetails.asmx/GetPMKIsanDatagov?FinYearID=3&TrimesterNo=1&StateCode=38&Distric=465&TokenNo=FHGBHFYBT268Gpf37hmJ6RY",
+      "https://exlink.pmkisan.gov.in/services/GovDataDetails.asmx/GetPMKIsanDatagov?FinYearID=3&TrimesterNo=2&StateCode=38&Distric=465&TokenNo=FHGBHFYBT268Gpf37hmJ6RY"
+    ],
+    "Dadra and Nagar Haveli:2019-20[2th,3th,4th]": [
+      "https://exlink.pmkisan.gov.in/services/GovDataDetails.asmx/GetPMKIsanDatagov?FinYearID=2&TrimesterNo=3&StateCode=38&Distric=465&TokenNo=FHGBHFYBT268Gpf37hmJ6RY",
+      "https://exlink.pmkisan.gov.in/services/GovDataDetails.asmx/GetPMKIsanDatagov?FinYearID=2&TrimesterNo=2&StateCode=38&Distric=465&TokenNo=FHGBHFYBT268Gpf37hmJ6RY",
+      "https://exlink.pmkisan.gov.in/services/GovDataDetails.asmx/GetPMKIsanDatagov?FinYearID=2&TrimesterNo=1&StateCode=38&Distric=465&TokenNo=FHGBHFYBT268Gpf37hmJ6RY"
+    ],
+    "Dadra and Nagar Haveli:2021-22[9th,10th]": [
+      "https://exlink.pmkisan.gov.in/services/GovDataDetails.asmx/GetPMKIsanDatagov?FinYearID=4&TrimesterNo=2&StateCode=38&Distric=465&TokenNo=FHGBHFYBT268Gpf37hmJ6RY",
+      "https://exlink.pmkisan.gov.in/services/GovDataDetails.asmx/GetPMKIsanDatagov?FinYearID=4&TrimesterNo=3&StateCode=38&Distric=465&TokenNo=FHGBHFYBT268Gpf37hmJ6RY"
+    ],
+    "Daman:2022-23[11th,12th]": [
+      "https://exlink.pmkisan.gov.in/services/GovDataDetails.asmx/GetPMKIsanDatagov?FinYearID=5&TrimesterNo=2&StateCode=38&Distric=463&TokenNo=FHGBHFYBT268Gpf37hmJ6RY",
+      "https://exlink.pmkisan.gov.in/services/GovDataDetails.asmx/GetPMKIsanDatagov?FinYearID=5&TrimesterNo=1&StateCode=38&Distric=463&TokenNo=FHGBHFYBT268Gpf37hmJ6RY"
+    ],
+    "Daman:2020-21[5th,6th,7th]": [
+      "https://exlink.pmkisan.gov.in/services/GovDataDetails.asmx/GetPMKIsanDatagov?FinYearID=3&TrimesterNo=3&StateCode=38&Distric=463&TokenNo=FHGBHFYBT268Gpf37hmJ6RY",
+      "https://exlink.pmkisan.gov.in/services/GovDataDetails.asmx/GetPMKIsanDatagov?FinYearID=3&TrimesterNo=1&StateCode=38&Distric=463&TokenNo=FHGBHFYBT268Gpf37hmJ6RY",
+      "https://exlink.pmkisan.gov.in/services/GovDataDetails.asmx/GetPMKIsanDatagov?FinYearID=3&TrimesterNo=2&StateCode=38&Distric=463&TokenNo=FHGBHFYBT268Gpf37hmJ6RY"
+    ],
+    "Daman:2019-20[2th,3th,4th]": [
+      "https://exlink.pmkisan.gov.in/services/GovDataDetails.asmx/GetPMKIsanDatagov?FinYearID=2&TrimesterNo=3&StateCode=38&Distric=463&TokenNo=FHGBHFYBT268Gpf37hmJ6RY",
+      "https://exlink.pmkisan.gov.in/services/GovDataDetails.asmx/GetPMKIsanDatagov?FinYearID=2&TrimesterNo=2&StateCode=38&Distric=463&TokenNo=FHGBHFYBT268Gpf37hmJ6RY",
+      "https://exlink.pmkisan.gov.in/services/GovDataDetails.asmx/GetPMKIsanDatagov?FinYearID=2&TrimesterNo=1&StateCode=38&Distric=463&TokenNo=FHGBHFYBT268Gpf37hmJ6RY"
+    ],
+    "Daman:2021-22[9th,10th]": [
+      "https://exlink.pmkisan.gov.in/services/GovDataDetails.asmx/GetPMKIsanDatagov?FinYearID=4&TrimesterNo=2&StateCode=38&Distric=463&TokenNo=FHGBHFYBT268Gpf37hmJ6RY",
+      "https://exlink.pmkisan.gov.in/services/GovDataDetails.asmx/GetPMKIsanDatagov?FinYearID=4&TrimesterNo=3&StateCode=38&Distric=463&TokenNo=FHGBHFYBT268Gpf37hmJ6RY"
+    ]
+  }
+}

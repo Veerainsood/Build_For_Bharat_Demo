@@ -1,0 +1,45 @@
+{
+  "PM-KISAN-Urls": {
+    "North Goa:2023-24[14th,15th]": [
+      "https://exlink.pmkisan.gov.in/services/GovDataDetails.asmx/GetPMKIsanDatagov?FinYearID=6&TrimesterNo=2&StateCode=30&Distric=551&TokenNo=FHGBHFYBT268Gpf37hmJ6RY",
+      "https://exlink.pmkisan.gov.in/services/GovDataDetails.asmx/GetPMKIsanDatagov?FinYearID=6&TrimesterNo=1&StateCode=30&Distric=551&TokenNo=FHGBHFYBT268Gpf37hmJ6RY"
+    ],
+    "North Goa:2022-23[11th,12th,13th]": [
+      "https://exlink.pmkisan.gov.in/services/GovDataDetails.asmx/GetPMKIsanDatagov?FinYearID=5&TrimesterNo=3&StateCode=30&Distric=551&TokenNo=FHGBHFYBT268Gpf37hmJ6RY",
+      "https://exlink.pmkisan.gov.in/services/GovDataDetails.asmx/GetPMKIsanDatagov?FinYearID=5&TrimesterNo=2&StateCode=30&Distric=551&TokenNo=FHGBHFYBT268Gpf37hmJ6RY",
+      "https://exlink.pmkisan.gov.in/services/GovDataDetails.asmx/GetPMKIsanDatagov?FinYearID=5&TrimesterNo=1&StateCode=30&Distric=551&TokenNo=FHGBHFYBT268Gpf37hmJ6RY"
+    ],
+    "North Goa:2020-21[5th,6th,7th]": [
+      "https://exlink.pmkisan.gov.in/services/GovDataDetails.asmx/GetPMKIsanDatagov?FinYearID=3&TrimesterNo=3&StateCode=30&Distric=551&TokenNo=FHGBHFYBT268Gpf37hmJ6RY",
+      "https://exlink.pmkisan.gov.in/services/GovDataDetails.asmx/GetPMKIsanDatagov?FinYearID=3&TrimesterNo=1&StateCode=30&Distric=551&TokenNo=FHGBHFYBT268Gpf37hmJ6RY",
+      "https://exlink.pmkisan.gov.in/services/GovDataDetails.asmx/GetPMKIsanDatagov?FinYearID=3&TrimesterNo=2&StateCode=30&Distric=551&TokenNo=FHGBHFYBT268Gpf37hmJ6RY"
+    ],
+    "North Goa:2019-20[2th,3th,4th]": [
+      "https://exlink.pmkisan.gov.in/services/GovDataDetails.asmx/GetPMKIsanDatagov?FinYearID=2&TrimesterNo=3&StateCode=30&Distric=551&TokenNo=FHGBHFYBT268Gpf37hmJ6RY",
+      "https://exlink.pmkisan.gov.in/services/GovDataDetails.asmx/GetPMKIsanDatagov?FinYearID=2&TrimesterNo=2&StateCode=30&Distric=551&TokenNo=FHGBHFYBT268Gpf37hmJ6RY",
+      "https://exlink.pmkisan.gov.in/services/GovDataDetails.asmx/GetPMKIsanDatagov?FinYearID=2&TrimesterNo=1&StateCode=30&Distric=551&TokenNo=FHGBHFYBT268Gpf37hmJ6RY"
+    ],
+    "North Goa:2021-22[9th,10th]": [
+      "https://exlink.pmkisan.gov.in/services/GovDataDetails.asmx/GetPMKIsanDatagov?FinYearID=4&TrimesterNo=2&StateCode=30&Distric=551&TokenNo=FHGBHFYBT268Gpf37hmJ6RY",
+      "https://exlink.pmkisan.gov.in/services/GovDataDetails.asmx/GetPMKIsanDatagov?FinYearID=4&TrimesterNo=3&StateCode=30&Distric=551&TokenNo=FHGBHFYBT268Gpf37hmJ6RY"
+    ],
+    "South Goa:2022-23[11th,12th]": [
+      "https://exlink.pmkisan.gov.in/services/GovDataDetails.asmx/GetPMKIsanDatagov?FinYearID=5&TrimesterNo=2&StateCode=30&Distric=552&TokenNo=FHGBHFYBT268Gpf37hmJ6RY",
+      "https://exlink.pmkisan.gov.in/services/GovDataDetails.asmx/GetPMKIsanDatagov?FinYearID=5&TrimesterNo=1&StateCode=30&Distric=552&TokenNo=FHGBHFYBT268Gpf37hmJ6RY"
+    ],
+    "South Goa:2020-21[5th,6th,7th]": [
+      "https://exlink.pmkisan.gov.in/services/GovDataDetails.asmx/GetPMKIsanDatagov?FinYearID=3&TrimesterNo=3&StateCode=30&Distric=552&TokenNo=FHGBHFYBT268Gpf37hmJ6RY",
+      "https://exlink.pmkisan.gov.in/services/GovDataDetails.asmx/GetPMKIsanDatagov?FinYearID=3&TrimesterNo=1&StateCode=30&Distric=552&TokenNo=FHGBHFYBT268Gpf37hmJ6RY",
+      "https://exlink.pmkisan.gov.in/services/GovDataDetails.asmx/GetPMKIsanDatagov?FinYearID=3&TrimesterNo=2&StateCode=30&Distric=552&TokenNo=FHGBHFYBT268Gpf37hmJ6RY"
+    ],
+    "South Goa:2019-20[2th,3th,4th]": [
+      "https://exlink.pmkisan.gov.in/services/GovDataDetails.asmx/GetPMKIsanDatagov?FinYearID=2&TrimesterNo=3&StateCode=30&Distric=552&TokenNo=FHGBHFYBT268Gpf37hmJ6RY",
+      "https://exlink.pmkisan.gov.in/services/GovDataDetails.asmx/GetPMKIsanDatagov?FinYearID=2&TrimesterNo=2&StateCode=30&Distric=552&TokenNo=FHGBHFYBT268Gpf37hmJ6RY",
+      "https://exlink.pmkisan.gov.in/services/GovDataDetails.asmx/GetPMKIsanDatagov?FinYearID=2&TrimesterNo=1&StateCode=30&Distric=552&TokenNo=FHGBHFYBT268Gpf37hmJ6RY"
+    ],
+    "South Goa:2021-22[9th,10th]": [
+      "https://exlink.pmkisan.gov.in/services/GovDataDetails.asmx/GetPMKIsanDatagov?FinYearID=4&TrimesterNo=2&StateCode=30&Distric=552&TokenNo=FHGBHFYBT268Gpf37hmJ6RY",
+      "https://exlink.pmkisan.gov.in/services/GovDataDetails.asmx/GetPMKIsanDatagov?FinYearID=4&TrimesterNo=3&StateCode=30&Distric=552&TokenNo=FHGBHFYBT268Gpf37hmJ6RY"
+    ]
+  }
+}
