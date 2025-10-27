@@ -153,7 +153,7 @@ def collect_titles_from_json(json_path: Path, family_name: str):
             titles.append(t)
     return titles
 
-def fill_download_form(driver, name, email, mobile, usage="Non Commercial", purposes=["Academia"]):
+def fill_download_form(driver, name, email, mobile, usage="Non Commercial", purposes=["Academia"], capcha=""):
     """Fill the data.gov.in download form using stable selectors (name/value/text)."""
     wait = WebDriverWait(driver, 15)
 
@@ -181,6 +181,7 @@ def fill_download_form(driver, name, email, mobile, usage="Non Commercial", purp
         driver.find_element(By.NAME, "name").send_keys(name)
         driver.find_element(By.NAME, "mobile").send_keys(mobile)
         driver.find_element(By.NAME, "email").send_keys(email)
+        driver.find_element(By.NAME, "form_captcha").send_keys(capcha)
         print("✅ Filled contact fields")
 
         # ---- Captcha focus ----
@@ -221,12 +222,19 @@ def fetch_and_show_captcha(driver, save_dir="captchas", show=True):
         # print(f"🖼️ Captcha image saved: {fpath}")
         import PIL.Image as Image
         from io import BytesIO
-        import pytesseract
         # Optionally open   
         if show:
             img = Image.open(BytesIO(r.content))
-            text = pytesseract.image_to_string(img, lang="eng")
-            print(text)
+            buf = BytesIO()
+            img.save(buf, format="PNG")
+            buf.seek(0)
+
+            res = requests.post(
+                "http://localhost:5001/predict",
+                files={"image": ("captcha.png", buf, "image/png")},
+            )
+            return res.json()['prediction'].upper()
+        return "Dont Know"
 
         # return fpath
 
@@ -283,14 +291,15 @@ def download_for_titles(driver, titles, download_dir: Path, max_items=None):
 
         # If a modal appears after clicking that requires captcha, wait for user again
         if detect_captcha_or_form(driver):
-            fetch_and_show_captcha(driver)
+            capcha = fetch_and_show_captcha(driver)
             fill_download_form(
                 driver,
                 name="Veerain Sood",
                 email="veerainsood1@gmail.com",
                 mobile="7710449767",
                 usage="Non Commercial",
-                purposes=["Academia", "R&D"]
+                purposes=["Academia", "R&D"],
+                capcha = capcha
             )
             print("Captcha detected after clicking. Please solve it now in the browser.")
             input("After solving the captcha and confirming the download, press ENTER to continue...")
