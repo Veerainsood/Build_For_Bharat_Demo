@@ -9,35 +9,43 @@ OUT_PATH = ROOT_DIR / "sector_index.json"
 EXTRA_EARTH_DATASETS = [
     {
         "id": "https://data.gov.in/files/ogd20/ogdpv2dms/s3fs-public/datafile/District_Rainfall_Normal_0.xls",
-        "title": "District Rainfall Normal (in mm) Monthly, Seasonal And Annual : Data Period 1951-2000"
+        "title": "District Rainfall Normal (in mm) Monthly, Seasonal And Annual : Data Period 1951-2000",
+        "index": 0
     },
     {
         "id": "https://data.gov.in/files/ogd20/ogdpv2dms/s3fs-public/datafile/Area_Weighted_Monthly_Seasonal_And_Annual_Rainfall_0.xls",
-        "title": "Area Weighted Monthly, Seasonal And Annual Rainfall (in mm) For 36 Meteorological Subdivisions"
+        "title": "Area Weighted Monthly, Seasonal And Annual Rainfall (in mm) For 36 Meteorological Subdivisions",
+        "index": 1
     },
     {
         "id": "https://data.gov.in/files/ogd20/ogdpv2dms/s3fs-public/datafile/All_India_Area_Weighted_Monthly_Seasonal_And_Annual_Rainfall.xls",
-        "title": "All India Area Weighted Monthly, Seasonal And Annual Rainfall (in mm)"
+        "title": "All India Area Weighted Monthly, Seasonal And Annual Rainfall (in mm)",
+        "index": 2
     },
     {
         "id": "https://data.gov.in/files/ogd20/ogdpv2dms/s3fs-public/datafile/DEP_STORM_DATA_1.csv",
-        "title": "Number of Depressions/Deep Depressions Formed Over the North Indian Ocean"
+        "title": "Number of Depressions/Deep Depressions Formed Over the North Indian Ocean",
+        "index": 3
     },
     {
         "id": "https://data.gov.in/files/ogd20/ogdpv2dms/s3fs-public/datafile/CS_STORM_DATA_1.csv",
-        "title": "Number of Cyclonic Storms/Severe Cyclonic Storms formed over the North Indian Ocean"
+        "title": "Number of Cyclonic Storms/Severe Cyclonic Storms formed over the North Indian Ocean",
+        "index": 4
     },
     {
         "id": "https://data.gov.in/files/ogd20/ogdpv2dms/s3fs-public/datafile/Mean_Temperatures_India1901-2012.csv",
-        "title": "Annual And Seasonal Mean Temperature Of India"
+        "title": "Annual And Seasonal Mean Temperature Of India",
+        "index": 5
     },
     {
         "id": "https://data.gov.in/files/ogd20/ogdpv2dms/s3fs-public/datafile/India_Max_Temperatures_1901-2012_1.xls",
-        "title": "Annual And Seasonal Maximum Temperature Of India"
+        "title": "Annual And Seasonal Maximum Temperature Of India",
+        "index": 6
     },
     {
         "id": "https://data.gov.in/files/ogd20/ogdpv2dms/s3fs-public/datafile/India_Min_Temperatures_1901-2012_1.xls",
-        "title": "Annual And Seasonal Minimum Temperature Of India"
+        "title": "Annual And Seasonal Minimum Temperature Of India",
+        "index": 7
     },
 ]
 
@@ -57,10 +65,11 @@ def build_science_subsectors():
 
     # append missing legacy datasets
     earth_map.extend(EXTRA_EARTH_DATASETS)
-
+    idx = len(EXTRA_EARTH_DATASETS)
     for dataset_id, title, sector_str in rows:
         if sector_str and "earth sciences" in sector_str.lower():
-            earth_map.append({"id": dataset_id, "title": title})    
+            earth_map.append({"id": dataset_id, "title": title, "index": idx})
+            idx += 1
 
     # deduplicate by id
     seen = set()
@@ -71,7 +80,7 @@ def build_science_subsectors():
             seen.add(e["id"])
 
     ROOT_DIR.mkdir(parents=True, exist_ok=True)
-    earth_file = ROOT_DIR / "temprature_and_rainfall.json"
+    earth_file = ROOT_DIR / "temperature_and_rainfall.json"
     earth_file.write_text(json.dumps({"Temperature and Rainfall": deduped}, indent=2))
 
     OUT_PATH.write_text(json.dumps({"Temperature and Rainfall": str(earth_file)}, indent=2))

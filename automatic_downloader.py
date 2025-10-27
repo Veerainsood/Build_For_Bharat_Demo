@@ -25,8 +25,9 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 # Config
+import re, shutil, time
 from urllib.parse import quote_plus
-DOWNLOAD_WAIT_TIMEOUT = 5  # seconds to wait for a download to finish per file
+DOWNLOAD_WAIT_TIMEOUT = 1  # seconds to wait for a download to finish per file
 INTER_FILE_PAUSE = 1.0       # seconds between items
 
 def setup_driver(download_dir: str, headless: bool = False):
@@ -155,7 +156,7 @@ def collect_titles_from_json(json_path: Path, family_name: str):
 
 def fill_download_form(driver, name, email, mobile, usage="Non Commercial", purposes=["Academia"], capcha=""):
     """Fill the data.gov.in download form using stable selectors (name/value/text)."""
-    wait = WebDriverWait(driver, 15)
+    wait = WebDriverWait(driver, 5)
 
     try:
         wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, "form")))
@@ -183,11 +184,18 @@ def fill_download_form(driver, name, email, mobile, usage="Non Commercial", purp
         driver.find_element(By.NAME, "email").send_keys(email)
         driver.find_element(By.NAME, "form_captcha").send_keys(capcha)
         print("✅ Filled contact fields")
+        
+        ## ---- Wait for Download button to be clickable ----
+        wait.until(EC.element_to_be_clickable((By.XPATH, "//button[contains(., 'Download')]")))
+        # then click
+        download_btn = driver.find_element(By.XPATH, "//button[contains(., 'Download')]")
+        driver.execute_script("arguments[0].click();", download_btn)
+        print("⬇️ Clicked the Download button.")
 
         # ---- Captcha focus ----
-        captcha_input = driver.find_element(By.NAME, "form_captcha")
-        captcha_input.click()
-        print("⚠️ Waiting for manual captcha entry...")
+        # captcha_input = driver.find_element(By.NAME, "form_captcha")
+        # captcha_input.click()
+        # print("⚠️ Waiting for manual captcha entry...")
 
     except Exception as e:
         print("⚠️ Could not fill form:", e)
@@ -197,7 +205,7 @@ def fetch_and_show_captcha(driver, save_dir="captchas", show=True):
     Detects the CAPTCHA image in the data.gov.in download form,
     downloads it for clarity, optionally displays it, and returns the local file path.
     """
-    wait = WebDriverWait(driver, 10)
+    wait = WebDriverWait(driver, 5)
     os.makedirs(save_dir, exist_ok=True)
 
     try:
@@ -242,6 +250,28 @@ def fetch_and_show_captcha(driver, save_dir="captchas", show=True):
         print(f"⚠️ Error fetching captcha: {e}")
         return None
 
+
+TEMP_DIR = Path(os.getcwd()) / "TEMP_DIR"
+
+def move_and_rename_single(download_dir: Path, title: str):
+    # make sure destination exists
+    Path(download_dir).mkdir(parents=True, exist_ok=True)
+    TEMP_DIR.mkdir(parents=True, exist_ok=True)
+
+    # small delay to ensure Chrome has finished writing file
+    time.sleep(0.5)
+    files = list(TEMP_DIR.iterdir())
+    if not files:
+        print("⚠️ No file found in temp dir.")
+        return
+
+    file = files[0]  # always one file
+    extension = file.suffix.lstrip('.').lower() or "csv"
+    dest = Path(download_dir) / f"{title}.{extension}"
+
+    shutil.move(str(file), dest)
+    print(f"✅ File saved as: {dest.name}")
+
 def download_for_titles(driver, titles, download_dir: Path, max_items=None):
     def twenty_adder(s: str) -> str:
         # replace spaces with %20 for URL
@@ -250,7 +280,7 @@ def download_for_titles(driver, titles, download_dir: Path, max_items=None):
 
     download_dir.mkdir(parents=True, exist_ok=True)
     total = len(titles)
-    for idx, title in enumerate(titles, start=1):
+    for idx, title in enumerate(titles):
         if max_items and idx > max_items:
             break
         print(f"\n[{idx}/{total}] Title: {title}")
@@ -266,14 +296,14 @@ def download_for_titles(driver, titles, download_dir: Path, max_items=None):
             continue
 
         # small settling time
-        wait = WebDriverWait(driver, 5)
+        wait = WebDriverWait(driver, 3)
         try:
         # wait for the exact match checkbox
             exact_box = wait.until(EC.presence_of_element_located((By.ID, "checkbox-1")))
             if not exact_box.is_selected():
                 driver.execute_script("arguments[0].click();", exact_box)
                 print("✅ Checked 'Exact Match' box")
-            time.sleep(3)
+            time.sleep(1)
         except Exception as e:
             print("⚠️ Could not enable exact match:", e)
         # # if captcha/form present before clicking, prompt user
@@ -303,7 +333,7 @@ def download_for_titles(driver, titles, download_dir: Path, max_items=None):
             )
             print("Captcha detected after clicking. Please solve it now in the browser.")
             input("After solving the captcha and confirming the download, press ENTER to continue...")
-
+            move_and_rename_single(download_dir, str(idx))
         # wait for download to finish
         # before = set(download_dir.iterdir())
         # ok, info = wait_for_download_completion(download_dir, before, timeout=DOWNLOAD_WAIT_TIMEOUT)
@@ -341,7 +371,7 @@ def main():
         return
 
     dl_dir = Path(args.download_dir).resolve()
-    driver = setup_driver(str(dl_dir), headless=args.headless)
+    driver = setup_driver(str('./TEMP_DIR'), headless=args.headless)
     try:
         download_for_titles(driver, titles, dl_dir, max_items=(args.max or None))
     finally:

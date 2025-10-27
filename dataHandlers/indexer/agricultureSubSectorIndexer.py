@@ -54,7 +54,7 @@ def build_grouped_sector_files():
             print(f"⚠️  No datasets found for {group_name}")
             continue
 
-        data = {group_name: [{"id": r[0], "title": r[1]} for r in all_rows]}
+        data = {group_name: [{"id": r[0], "title": r[1], "index":idx} for idx , r in enumerate(all_rows)]}
         path = ROOT_DIR / f"{safe_filename(group_name)}.json"
         path.write_text(json.dumps(data, indent=2))
 
