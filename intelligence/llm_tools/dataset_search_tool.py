@@ -28,7 +28,11 @@ class DatasetSearchTool:
         }
 
         # ---- SentenceTransformer (CPU-only, pre-loaded once) ----
-        self.sentence_model = SentenceTransformer("all-MiniLM-L6-v2")
+        self.sentence_model = SentenceTransformer(
+            "./models/all-MiniLM-L6-v2",
+            device="cpu",  # or "cuda" if GPU is available
+            local_files_only=True
+        )
 
         dataset_texts = [
             "Beneficiaries (PM-KISAN): farmers, government benefits, instalments, village-wise data",

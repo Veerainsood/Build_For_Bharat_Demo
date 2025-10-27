@@ -15,13 +15,37 @@ CACHE_DIR.mkdir(parents=True, exist_ok=True)
 
 
 class DataFetcher:
-    def __init__(self, cache_dir: Path = CACHE_DIR, timeout: int = 60):
+    def __init__(self, cache_dir: Path = CACHE_DIR, timeout: int = 20):
         self.cache_dir = cache_dir
         self.timeout = timeout
 
     def _cache_path(self, url: str) -> Path:
         safe = url.replace("https://", "").replace("http://", "").replace("/", "_")
         return self.cache_dir / safe
+
+    def load_any(self, entry):
+        """
+        entry can be:
+          - {'id': <url>, 'title': ...}
+          - {'file_path': [<urls>...], 'state': ..., 'entry': ...}   (PM-KISAN)
+          - a plain string URL
+        returns: pandas.DataFrame
+        """
+        if isinstance(entry, str):
+            return self.load(entry)
+
+        # handle PM-KISAN style (list of URLs)
+        if "file_path" in entry and isinstance(entry["file_path"], list):
+            key = entry.get("entry") or entry["state"]
+            url_map = {key: entry["file_path"]}
+            return self.load_pmkisan_family(key, url_map)
+
+        # handle normal case with 'id'
+        url = entry.get("id")
+        if url:
+            return self.load(url)
+
+        raise ValueError(f"Unrecognized entry format: {entry}")
 
     # ---------- main dispatcher ----------
     def load(self, url: str, source_type: str = None):
@@ -96,7 +120,7 @@ class DataFetcher:
         df.columns = [c.strip() for c in df.columns]
         print(f"📊 Loaded CSV: {len(df)} rows × {len(df.columns)} cols")
         return df
-
+    
     # ---------- Excel ----------
     def _load_excel(self, url: str):
         path = self._download(url)

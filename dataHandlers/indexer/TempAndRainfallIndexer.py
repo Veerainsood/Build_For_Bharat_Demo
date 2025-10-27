@@ -72,9 +72,9 @@ def build_science_subsectors():
 
     ROOT_DIR.mkdir(parents=True, exist_ok=True)
     earth_file = ROOT_DIR / "temprature_and_rainfall.json"
-    earth_file.write_text(json.dumps({"Temprature and Rainfall": deduped}, indent=2))
+    earth_file.write_text(json.dumps({"Temperature and Rainfall": deduped}, indent=2))
 
-    OUT_PATH.write_text(json.dumps({"Temprature and Rainfall": str(earth_file)}, indent=2))
+    OUT_PATH.write_text(json.dumps({"Temperature and Rainfall": str(earth_file)}, indent=2))
     print(f"✅ Wrote {len(deduped)} total Earth+Atmosphere datasets to {earth_file}")
 
 def main():

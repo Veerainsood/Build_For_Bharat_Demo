@@ -1,0 +1,58 @@
+Type of crop,Crop,Variety,Recommended Zone
+Cereal crops ,Rice,TRY 3,Tamil Nadu/ 2010
+Cereal crops ,Rice,ADT 49,Tamil Nadu/ 2011
+Cereal crops ,Rice,ADT 50,Tamil Nadu/ 2012
+Cereal crops ,Rice,CO 4 (Hybrid),Tamil Nadu/ 2011
+Cereal crops ,Rice,Gujarat Anand Rice-2 (IET-21614),Gujarat/2011
+Cereal crops ,Rice,GNR2,Gujarat/2010
+Cereal crops ,Rice,Luna Barial (IET 19472),Odisha
+Cereal crops ,Rice,Improved Lalat (CRMAS 2621-7-1) (IET 21066),Odisha
+Cereal crops ,Rice,Luna Sankhi (IET 21237),Odisha
+Cereal crops ,Rice,Improved Tapaswini (CRMAS 2622-7-6) (IET 21070),Odisha
+Cereal crops ,Rice,Poorna Bhog (IET 18008) (CRM-2203-4),Odisha
+Cereal crops ,Rice,Sumit (CR Dhan 404) (IET 19913),Odisha
+Cereal crops ,Rice,Jala Mani (CR Dhan 503)  (IET 20214 (CR 2282-1-2-5-1),Odisha
+Cereal crops ,Rice,Jayanti Dhan (CR Dhan 502)  (IET 20706) (CR 2080-169-3-2-5-2),Odisha
+Cereal crops ,Rice,Satyabhama (CR Dhan 100) (IET 20148),Odisha
+Cereal crops ,Rice,Pyari (CR Dhan 200)  (CR 2624-IR 55423-01) (IET 21214),Odisha
+Cereal crops ,Rice,HUE (CR Dhan 301) (IET 19351) (CRK 26-1-2-1),Odisha
+Cereal crops ,Wheat,CO W2,Tamil Nadu/ 2010
+Cereal crops ,Wheat,PDKV Washim (WSM 1472),Maharashtra
+Cereal crops ,Wheat,GDW-1255,Gujarat/2011
+Cereal crops ,Wheat,GW -11,Gujarat/2010
+Cereal crops ,Barley,BH 885,Haryana
+Cereal crops ,Maize,CO 6  (Hyrid),Tamil Nadu/ 2012
+Cereal crops ,Sorghum,CO 30,Tamil Nadu/ 2010
+Cereal crops ,Sorghum,Phule Panchami (RPOSV 3),Maharashtra
+Cereal crops ,Sorghum,Phule Revati (RSV 1006),Maharashtra
+Cereal crops ,Sorghum,Co5,Tamil Nadu
+Cereal crops ,Pearl Millet,CO 9 (Hybrid),Tamil Nadu/ 2011
+Cereal crops ,Pearl Millet,PKV-Raj (BBH 3),Maharashtra
+Cereal crops ,Pearl Millet,ABPC4-3 (MP 484),Maharashtra
+Cereal crops ,Kodo Millet,Indira Kodo-1 (BK-1),Chhattisgarh
+Cereal crops ,Finger Millet,Indira Ragi-1 (BR-7),Chhattisgarh
+Cereal crops ,Finger Millet,Dapoli safed – 1,Maharashtra
+Oil Seeds crops,Sunflower,CO 2 (Hybrid),Tamil Nadu/ 2010
+Oil Seeds crops,Safflower,SSF-708,Maharashtra
+Oil Seeds crops,Groundnut,CO 6,Tamil Nadu/ 2010
+Oil Seeds crops,Groundnut,Gujarat Junagarh Groundnut 31  (GJG-31)  (J-71),Gujarat
+Oil Seeds crops,Groundnut,Gujarat Junagarh Groundnut 9  (GJG-9) (J-69),Gujarat
+Oil Seeds crops,Groundnut,Gujarat Junagarh Groundnut-22 (JSSP-36),Gujarat/2011
+Oil Seeds crops,Groundnut,Gujarat Junagarh Groundnut-17  (JSP-48),Gujarat/2011
+Oil Seeds crops,Brown Sarson,Shalimar Sarson – 1,Jammu& Kashmir
+Oil Seeds crops,Sesamum,JLT-408 (JLS-9848-2),Maharashtra
+Oil Seeds crops,Sesamum,Gujarat Til-4 (GTil-4) (AT-159),NA
+Oil Seeds crops,Castor,JI-273 (GC3),Gujarat
+PULSE CROPS,Black gram,UH-1 (UH 04-06),Haryana
+PULSE CROPS,Black gram,VBN 6,Tamil Nadu/ 2011
+PULSE CROPS,Green gram,MH-421,Haryana
+PULSE CROPS,Green gram,BM 2003-2,Maharashtra
+PULSE CROPS,Chickpea,PKV Harita (AKG 9303-12),Maharashtra
+PULSE CROPS,Pigeonpea,BDN 711 (BDN 2004-3),Maharashtra
+PULSE CROPS,Pigeonpea,Anand Grain Tur-2 (AGT-2),Gujarat
+FIBRE CROPS,Cotton,Phule Anmol (RAC 024),Maharashtra
+FIBRE CROPS,Cotton,Phule Dhanwantry (Rh. arb. 02-1),Maharashtra
+FIBRE CROPS,Cotton,Anand Desi Cotton-1,Gujarat/2010
+FIBRE CROPS,Cotton,Desi Cotton (Hybrid) KR-64,Haryana/2011
+FORAGE CROPS,Anjan Grass,Gujarat Anand Anjan Grass -1 (GAAG-1),Gujarat/2011
+FORAGE CROPS,Grain Amaranthus,Phule Kartiki (RGAS 92-10-1),Maharashtra
