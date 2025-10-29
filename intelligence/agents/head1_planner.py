@@ -31,5 +31,7 @@ class Head1Planner:
 
     def plan(self, query: str, registry: DatasetRegistry) -> str:
         prompt = self.make_prompt(query, registry=registry)
-        response = ollama.chat(model=self.model, messages=[{"role": "user", "content": prompt}])
+        breakpoint()
+        response = ollama.chat(model=self.model, messages=[{"role": "user", "content": prompt}]) # 3min 33sec
+        breakpoint()
         return response["message"]["content"].strip()

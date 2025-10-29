@@ -97,8 +97,9 @@ class DatasetSearchTool:
         with agriculture (crops, seeds, yields, farming),
         then you must include both 5 and 3.
         """
-
+        breakpoint()
         raw = self.llm.chat(prompt, temperature=0)
+        breakpoint()
         ids = self._extract_numbers(raw)
         valid = [self.dataset_ids[i] for i in ids if i in self.dataset_ids]
         if not valid:

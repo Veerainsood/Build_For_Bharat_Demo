@@ -35,7 +35,7 @@ class DatasetRegistry:
         cat_cols = df.select_dtypes(exclude=[np.number]).columns
         for col in cat_cols:
             if df[col].isna().any():
-                df[col].fillna(df[col].mode().iloc[0], inplace=True)
+                df[col] = df[col].fillna(df[col].mode().iloc[0])
 
         self.datasets[name] = df
 

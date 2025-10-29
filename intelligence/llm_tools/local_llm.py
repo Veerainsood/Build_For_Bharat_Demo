@@ -2,7 +2,7 @@
 import requests, json
 
 class LocalLLM:
-    def __init__(self, model: str = "qwen2.5:7b", host: str = "http://localhost:11434"):
+    def __init__(self, model: str = "qwen2.5:14b", host: str = "http://localhost:11434"):
         self.model = model
         self.host = host.rstrip("/")
 

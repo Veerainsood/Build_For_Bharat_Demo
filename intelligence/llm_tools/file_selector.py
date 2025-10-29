@@ -174,7 +174,9 @@ class FileSearchTool:
             Respond ONLY with the most relevant dataset number(s), separated by commas.
             Return -1 if none match.
             """
+            breakpoint()
             raw = self.llm.chat(prompt, temperature=0)
+            breakpoint()
             nums = [int(n) for n in re.findall(r"\d+", raw)] or [-1]
             selected = [
                 i for i in nums if 1 <= i
@@ -198,8 +200,9 @@ class FileSearchTool:
             Respond ONLY with the top 3 numbers (e.g., 2,5,1) in relevance order.
             If unsure, include fewer. No explanations. Choose at least 1.
         """
-
-        raw = self.llm.chat(prompt, temperature=0)
+        breakpoint()
+        raw = self.llm.chat(prompt, temperature=0) # 25sec
+        breakpoint()
         nums = [int(n) for n in re.findall(r"\d+", raw)]
 
         # reattach metadata after reranking
