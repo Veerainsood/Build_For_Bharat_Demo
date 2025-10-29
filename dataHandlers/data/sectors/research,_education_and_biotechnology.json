@@ -1,29 +1,14 @@
 {
   "Research, Education & Biotechnology": [
     {
-      "id": "https://krishi.icar.gov.in/video/public/nic/video/1",
-      "title": "ICAR Video Information",
-      "index": 0
-    },
-    {
-      "id": "https://krishi.icar.gov.in/MasterVocab/WEB/GetUrl/Agroregion",
-      "title": "Agro-Ecological regions",
-      "index": 1
-    },
-    {
       "id": "https://data.gov.in/files/ogd20/ogdpv2dms/s3fs-public/datafile/List_of_ICAR_Institutes.xls",
       "title": "ICAR Institutes List",
-      "index": 2
+      "index": 0
     },
     {
       "id": "https://data.gov.in/files/ogd20/ogdpv2dms/s3fs-public/datafile/Table_9.8_Total_budget_and_expenditure_of_State_Agricultural_Universities.csv",
       "title": "Total budget and expenditure of State Agricultural Universities",
-      "index": 3
-    },
-    {
-      "id": "https://krishi.icar.gov.in/Technology/WEB/GetUrlPublic/TechAllPublicNIC",
-      "title": "ICAR Technology Repository as on date",
-      "index": 4
+      "index": 1
     }
   ]
 }

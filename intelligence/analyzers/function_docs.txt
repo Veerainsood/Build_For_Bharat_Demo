@@ -1,0 +1,39 @@
+Available functions (use only these):
+
+# --- Filtering & Cleaning -------------------------------------------------
+filter_rows(df, condition) → Filter rows using a pandas-style query string.
+drop_missing(df, cols=None) → Drop rows with missing (NaN) values in given columns.
+fill_missing(df, cols=None, method="mean") → Fill missing values using mean, median, or zero.
+rename_columns(df, mapping) → Rename columns using a mapping dictionary.
+select_columns(df, cols) → Select a subset of columns from a DataFrame.
+sort_rows(df, by, ascending=True) → Sort rows by one or more columns.
+remove_duplicates(df, subset=None) → Remove duplicate rows optionally based on a subset of columns.
+filter_date_range(df, col, start, end) → Keep rows where the date column lies between start and end.
+
+# --- Aggregation & Grouping ----------------------------------------------
+group_by_mean(df, key, cols) → Group by key and compute mean for given columns.
+group_by_sum(df, key, cols) → Group by key and compute sum for given columns.
+group_by_median(df, key, cols) → Group by key and compute median for given columns.
+group_by_count(df, key) → Count the number of rows per group.
+aggregate_multiple(df, key, agg_map) → Perform multiple aggregations defined by a dict mapping columns to functions.
+pivot_table(df, index, columns, values, aggfunc="mean") → Create a pivot table.
+flatten_multiindex(df) → Flatten multi-level column indexes after groupby or pivot.
+
+# --- Joining & Combining --------------------------------------------------
+merge_dfs(df1, df2, on, how="inner") → Merge two DataFrames on a common column.
+concat_dfs(dfs, axis=0) → Concatenate multiple DataFrames along rows or columns.
+align_columns(df1, df2) → Align two DataFrames to have common columns only.
+lookup_value(df, key_col, key_val, target_col) → Retrieve a single value based on lookup condition.
+add_computed_column(df, new_col, expr) → Add a computed column using a pandas eval expression.
+
+# --- Trend, Correlation & Statistics -------------------------------------
+compute_correlation(df1, df2, cols1, cols2) → Compute correlation matrix between columns of two DataFrames.
+yearly_trend(df, year_col, value_col) → Fit a linear trend line for numeric values across years.
+moving_average(df, col, window=3) → Add a moving-average column over a rolling window.
+percentage_change(df, col) → Compute percentage change between consecutive rows.
+normalize_column(df, col) → Normalize a column to 0–1 range.
+standardize_column(df, col) → Standardize a column to have zero mean and unit variance.
+describe_stats(df) → Return summary statistics (count, mean, std, min, etc.).
+detect_outliers(df, col, z_thresh=3) → Identify rows with outlier values using z-score threshold.
+aggregate_trend(df, group_col, value_col) → Compute slope of trend per group using linear regression.
+compare_means(df, group_col, value_col) → Compare mean of value_col across different groups.

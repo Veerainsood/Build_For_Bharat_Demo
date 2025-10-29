@@ -1,0 +1,15 @@
+{
+  "failed_step": [
+    "mean_hybrids_mutants",
+    "group_by_mean",
+    "crop_groups_filtered",
+    {
+      "key": "YEAR",
+      "cols": [
+        "Hybrids",
+        "Mutants"
+      ]
+    }
+  ],
+  "error": "'YEAR'"
+}

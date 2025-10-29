@@ -3,3 +3,4 @@ __pycache__/
 ogdp_index.db
 samples/*
 models/*
+.env

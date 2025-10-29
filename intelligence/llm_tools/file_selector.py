@@ -22,7 +22,7 @@ class FileSearchTool:
         else:
             self.family_name, entries = "unknown", family_index
 
-        self.family_index = entries  # list[{id,title}]
+        self.family_index = entries  # list[{id,title,index}]
         self.llm = LocalLLM(model=model)
         self.sentence_model = SentenceTransformer("./models/bge-base-en-v1.5", device="cpu", local_files_only=True)
 
@@ -146,7 +146,7 @@ class FileSearchTool:
         top_idx = np.argsort(-np.array(sims))[:top_k]
 
         selected = [
-            {"index": int(i), "title": self.family_index[i]["title"], "score": float(sims[i])}
+            {"index": self.family_index[i]["index"], "title": self.family_index[i]["title"], "score": float(sims[i])}
             for i in top_idx if sims[i] >= threshold
         ]
         return selected or [{"index": -1}]
@@ -157,9 +157,10 @@ class FileSearchTool:
         """Main entry: hybrid retrieval → LLM re-ranking."""
         # breakpoint()
         results = self.retrieve(query)
+        idx_map = {d['index']: i for i, d in enumerate(self.family_index)}
         if not results or results[0]["index"] == -1:
             # fallback full-reasoning on all titles
-            titles_text = "\n".join(f"{i+1}. {d['title']}" for i, d in enumerate(self.family_index))
+            titles_text = "\n".join(f"{d['index']}. {d['title']}" for i, d in enumerate(self.family_index))
             prompt = f"""
             You are a dataset file selector. Choose which of the following datasets
             best answer the user's query.
@@ -176,13 +177,13 @@ class FileSearchTool:
             raw = self.llm.chat(prompt, temperature=0)
             nums = [int(n) for n in re.findall(r"\d+", raw)] or [-1]
             selected = [
-                self.family_index[i-1] for i in nums if 1 <= i <= len(self.family_index)
+                i for i in nums if 1 <= i
             ]
-            return {"selected_files": selected or [{"id": -1}]}
+            return {"selected_indexes": selected or [{"id": -1}]}
 
         # -------------------- LLM re-ranking --------------------
-        top_titles = [r["title"] for r in results]
-        titles_text = "\n".join(f"{i+1}. {t}" for i, t in enumerate(top_titles))
+        # top_titles = [r["title"] for r in results]
+        titles_text = "\n".join(f"{t['index']}. {t['title']}" for i, t in enumerate(results))
         prompt = f"""
             Rank which of the following datasets most directly answer:
             "{query}"
@@ -202,10 +203,11 @@ class FileSearchTool:
         nums = [int(n) for n in re.findall(r"\d+", raw)]
 
         # reattach metadata after reranking
+        # breakpoint()
         reranked = [
-            self.family_index[results[i-1]["index"]]
-            for i in nums if 1 <= i <= len(results)
+            {'index':i,'title':self.family_index[idx_map[i]]['title']}
+            for i in nums if 1 <= i 
         ]
 
-        return {"selected_files": reranked[:3] if reranked else [self.family_index[r["index"]] for r in results[:3]]}
+        return {"selected_files": reranked[:3] if reranked else [{'index':r["index"],'title':r["title"]} for r in results[:3]]}
 

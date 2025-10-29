@@ -1,0 +1,1 @@
+[["filtered", "filter_rows", "D1", {"condition": "Crop == 'Wheat'"}], ["selected_varieties", "select_columns", "filtered", {"cols": ["Variety"]}]]

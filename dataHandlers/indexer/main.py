@@ -15,7 +15,7 @@ SECTOR_MAP = {
     "Agricultural Marketing": "dataHandlers/data/sectors/agricultural_marketing.json",
     "Crop Development & Seed Production": "dataHandlers/data/sectors/crop_development_and_seed_production.json",
     "Research, Education & Biotechnology": "dataHandlers/data/sectors/research,_education_and_biotechnology.json",
-    "Temprature and Rainfall": "dataHandlers/data/sectors/temprature_and_rainfall.json",
+    "Temperature and Rainfall": "dataHandlers/data/sectors/temperature_and_rainfall.json",
 }
 
 def run_indexers():

@@ -15,7 +15,16 @@ CACHE_DIR.mkdir(parents=True, exist_ok=True)
 
 
 class DataFetcher:
-    def __init__(self, cache_dir: Path = CACHE_DIR, timeout: int = 20):
+    
+    LOCAL_FAMILIES = {
+            "Crop Development & Seed Production",
+            "Temperature and Rainfall",
+            "Research, Education & Biotechnology"
+        }
+
+    BASE_DIR = Path("dataHandlers/data")
+
+    def __init__(self, cache_dir: Path = CACHE_DIR, timeout: int = 60):
         self.cache_dir = cache_dir
         self.timeout = timeout
 
@@ -23,7 +32,7 @@ class DataFetcher:
         safe = url.replace("https://", "").replace("http://", "").replace("/", "_")
         return self.cache_dir / safe
 
-    def load_any(self, entry):
+    def load_any(self, family_name ,entry):
         """
         entry can be:
           - {'id': <url>, 'title': ...}
@@ -31,14 +40,53 @@ class DataFetcher:
           - a plain string URL
         returns: pandas.DataFrame
         """
+        # breakpoint()
         if isinstance(entry, str):
             return self.load(entry)
 
+        if isinstance(entry,dict) and 'index' in entry.keys():
+            if family_name in self.LOCAL_FAMILIES:
+            
+                folder = self.BASE_DIR / family_name
+            
+                if not folder.exists():
+                    raise FileNotFoundError(f"No such folder: {folder}")
+
+                # find file like 0.csv, 0.xlsx, etc.
+
+                matches = list(folder.glob(f"{entry['index']}.*"))
+                if not matches:
+                    raise FileNotFoundError(f"No file found for index {entry} in {family_name}")
+
+                file_path = matches[0]
+                ext = file_path.suffix.lower()
+
+                print(f"📁 Using local dataset: {file_path.name}")
+
+                if ext in [".csv", ".txt"]:
+                    df = pd.read_csv(file_path)
+                elif ext in [".xls", ".xlsx"]:
+                    df = pd.read_excel(file_path)
+                elif ext == ".json":
+                    df = pd.read_json(file_path)
+                elif ext == ".xml":
+                    df = self._load_xml(file_path)
+                else:
+                    raise ValueError(f"Unsupported local file type: {ext}")
+
+                print(f"📊 Loaded local file: {len(df)} rows × {len(df.columns)} cols")
+                return df
+                
+            else:
+                raise ValueError(f"Family '{entry}' does not support local indexing.")
+                
+            
         # handle PM-KISAN style (list of URLs)
         if "file_path" in entry and isinstance(entry["file_path"], list):
             key = entry.get("entry") or entry["state"]
             url_map = {key: entry["file_path"]}
             return self.load_pmkisan_family(key, url_map)
+
 
         # handle normal case with 'id'
         url = entry.get("id")
@@ -111,27 +159,60 @@ class DataFetcher:
 
 
     # ---------- CSV ----------
-    def _load_csv(self, url: str):
-        path = self._download(url)
+    def _load_csv(self, url_or_path):
+        path = url_or_path if isinstance(url_or_path, Path) else self._download(url_or_path)
+        import csv, pandas as pd
+
+        encodings = ["utf-8-sig", "utf-8", "latin-1", "windows-1252"]
+        seps = [",", ";", "\t", "|"]
+
+        # 1️⃣ Try a few encoding/sep combinations quickly
+        for enc in encodings:
+            for sep in seps:
+                try:
+                    df = pd.read_csv(path, encoding=enc, sep=sep, engine="python", on_bad_lines="skip")
+                    if df.shape[1] > 1:  # at least looks tabular
+                        print(f"📊 Loaded CSV ({enc}, '{sep}') → {len(df)}×{len(df.columns)}")
+                        return df
+                except Exception:
+                    continue
+
+        # 2️⃣ Sniff delimiter as last resort
         try:
-            df = pd.read_csv(path)
-        except Exception:
-            df = pd.read_csv(path, sep=";")
-        df.columns = [c.strip() for c in df.columns]
-        print(f"📊 Loaded CSV: {len(df)} rows × {len(df.columns)} cols")
+            with open(path, "r", errors="replace", newline="") as f:
+                sample = f.read(4096)
+                try:
+                    dialect = csv.Sniffer().sniff(sample)
+                    sep = dialect.delimiter
+                except csv.Error:
+                    sep = ","
+                f.seek(0)
+                df = pd.read_csv(f, encoding="latin-1", sep=sep, engine="python", on_bad_lines="skip")
+                print(f"📊 Loaded CSV (sniffed '{sep}') → {len(df)}×{len(df.columns)}")
+                return df
+        except Exception as e:
+            print(f"❌ Could not parse CSV {path}: {e}")
+
+        # 3️⃣ Fallback: treat as text and split roughly
+        with open(path, "r", errors="replace") as f:
+            lines = [l.strip().split(",") for l in f.readlines()]
+        df = pd.DataFrame(lines)
+        print(f"⚠️ Rough CSV parse for {path}, shape={df.shape}")
         return df
+
     
     # ---------- Excel ----------
-    def _load_excel(self, url: str):
-        path = self._download(url)
+    def _load_excel(self, path_or_url: str):
+        path = path_or_url if isinstance(path_or_url, Path) else self._download(path_or_url)
+        p = Path(path)
         try:
-            df = pd.read_excel(path)
+            df = pd.read_excel(p)
             print(f"📊 Loaded Excel: {len(df)} rows × {len(df.columns)} cols")
             return df
         except Exception as e:
-            print(f"❌ Excel load failed for {url}: {e}")
+            print(f"❌ Excel load failed for {p}: {e}")
             return None
-
+    
     # ---------- JSON / API ----------
     def _load_json(self, url: str):
         if "format=" not in url:

@@ -1,0 +1,69 @@
+[
+  {
+    "name": "D1",
+    "title": "Number of horticultural crops varieties released during 1951-2009",
+    "columns": [
+      "Crop groups",
+      "Crops",
+      "Selections",
+      "Hybrids",
+      "Mutants",
+      "Others",
+      "Total"
+    ]
+  },
+  {
+    "name": "D2",
+    "title": "Nutrient content and nutritional water productivity of selected food commodities",
+    "columns": [
+      "Food commodity",
+      "Water input per kg product",
+      "Productivity kg/m2",
+      "Nutritional water productivity Energy kcal/m3",
+      "Nutritional water productivity Protein g/m3",
+      "Nutritional water productivity Fat  g/m3",
+      "Nutritional water productivity Calcium mg/m3"
+    ]
+  },
+  {
+    "name": "D3",
+    "title": "Rainfall in South Peninsula (10 subdivisions) and its departure from normal for Monsoon Session (June-Sept) from 1901 to 2016",
+    "columns": [
+      "YEAR",
+      "Actual Rainfall: JUN",
+      "Actual Rainfall: JUL",
+      "Actual Rainfall: AUG",
+      "Actual Rainfall: SEPT",
+      "Actual Rainfall: JUN-SEPT",
+      "Departure Percentage: JUN",
+      "Departure Percentage: JUL"
+    ]
+  },
+  {
+    "name": "D4",
+    "title": "Rainfall in sub-division and its departure from normal for Monsoon session from 1901-2021",
+    "columns": [
+      "subdivision",
+      "YEAR",
+      "JUN",
+      "JUL",
+      "AUG",
+      "SEP",
+      "JUN-SEP"
+    ]
+  },
+  {
+    "name": "D5",
+    "title": "Rainfall in South Peninsula (10 subdivisions) and its departure from normal for Monsoon Session (June-Sept) from 1901 to 2015",
+    "columns": [
+      "YEAR",
+      "Actual Rainfall: JUN",
+      "Actual Rainfall: JUL",
+      "Actual Rainfall: AUG",
+      "Actual Rainfall: SEPT",
+      "Actual Rainfall: JUN-SEPT",
+      "Departure Percentage: JUN",
+      "Departure Percentage: JUL"
+    ]
+  }
+]

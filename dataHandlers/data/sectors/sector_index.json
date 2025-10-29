@@ -1,3 +1,7 @@
 {
+  "Beneficiaries (PM-KISAN)": "dataHandlers/data/sectors/Beneficiaries_(PM_KISAN).json",
+  "Agricultural Marketing": "dataHandlers/data/sectors/agricultural_marketing.json",
+  "Crop Development & Seed Production": "dataHandlers/data/sectors/crop_development_and_seed_production.json",
+  "Research, Education & Biotechnology": "dataHandlers/data/sectors/research,_education_and_biotechnology.json",
   "Temperature and Rainfall": "dataHandlers/data/sectors/temperature_and_rainfall.json"
 }

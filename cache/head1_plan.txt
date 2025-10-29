@@ -1,0 +1,2 @@
+1) D1 filter Crop == 'Wheat'
+2) answer = select(Variety)
