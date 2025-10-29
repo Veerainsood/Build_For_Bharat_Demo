@@ -1,2 +1,8 @@
-1) D1 filter Crop == 'Wheat'
-2) answer = select(Variety)
+Based on the query and available datasets, here are the steps to answer "impact of rainfall on crop yields in Tamil Nadu":
+
+1) D5 filter subdivision == 'EAST UTTAR PRADESH' and YEAR >= 2000 compute mean(JUN-SEP)
+2) D4 join D5 on YEAR group by YEAR compute mean(Actual Rainfall: JUN-SEPT) where Actual Rainfall: JUN-SEPT != 0
+3) D1 filter Crop groups == 'Vegetable Crops' and Crops in ('Potato', 'Cassava') compute sum(Total) group by Year
+4) D2 join D1 on Year group by Year compute mean(Actual Rainfall: JUN-SEPT) where Actual Rainfall: JUN-SEPT != 0
+5) Join results from steps 3 and 4 on Year
+6) answer = correlation(D5.mean_jun_sep, D1.yield_by_year)

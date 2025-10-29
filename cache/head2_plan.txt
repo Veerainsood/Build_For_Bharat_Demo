@@ -1,1 +1,9 @@
-[["filtered", "filter_rows", "D1", {"condition": "Crop == 'Wheat'"}], ["selected_varieties", "select_columns", "filtered", {"cols": ["Variety"]}]]
+[
+    ["east_yearly", "filter_rows", "D5", {"condition": "subdivision == 'EAST UTTAR PRADESH' and YEAR >= 2000"}],
+    ["rain_mean", "group_by_mean", "east_yearly", {"key": "YEAR", "cols": ["JUN-SEP"]}],
+    ["veg_filtered", "filter_rows", "D1", {"condition": "Crop groups == 'Vegetable Crops' and Crops in ('Potato', 'Cassava')"}],
+    ["yield_summed", "group_by_sum", "veg_filtered", {"key": "YEAR", "cols": ["Total"]}],
+    ["rain_joined", "merge_dfs", ["rain_mean", "D4"], {"on": "YEAR", "how": "inner"}],
+    ["combined_yield_rainfall", "align_columns", ["yield_summed", "rain_joined"]],
+    ["final_corr", "compute_correlation", ["combined_yield_rainfall['Total']", "combined_yield_rainfall['Actual Rainfall: JUN-SEPT']"], {}]
+]

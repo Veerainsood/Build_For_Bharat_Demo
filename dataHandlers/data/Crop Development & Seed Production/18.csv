@@ -1,4 +1,4 @@
-Type of Crops,Crops ,Variety name,Year ,Remarks/ development by 
+Type of Crops,Crops,Variety name,Year,Remarks/ development by
 Fruit Crops ,Banana,Udhayam,2005,"Released by NRC for banana, Trichy"
 Fruit Crops ,Guava,Shweta,2005,"Released by CISH, Lucknow"
 Fruit Crops ,Citrus- Acid- Lime,Khagzi lime clone-PDKV,2006,Released under AICRP on Tropical Fruits
@@ -22,18 +22,18 @@ Vegetable crops,Chilli,Kashi Anmol (KA-2),2005,"UP, Uttarakhand, Odisha, Karnata
 Vegetable crops,Chilli,Prasanth (LCA-334),2005,"Maharashtra, UP, Bihar, Punjab, Odisha, Andhra Pradesh, MP"
 Vegetable crops,Chilli,"Arka sweta, Arka Meghana",2007,"Released by IIHR, Bangalore"
 Vegetable crops,Cowpea,Kashi Shyamal (IVRCP-1),2005,"UP, Bihar, MP, Jharkhand, Chhattisgarh, Odisha, West Bengal"
-Vegetable crops,Garlic,Jamun Safed – 4(G-323),2005,"Karnataka, Tamil Nadu, Andhra Pradesh, Maharashtra"
+Vegetable crops,Garlic,Jamun Safed Â– 4(G-323),2005,"Karnataka, Tamil Nadu, Andhra Pradesh, Maharashtra"
 Vegetable crops,Okra,Kashi Pragati (VRO-6),2005,"Uttarakhand, UP, Punjab, Karnataka"
 Vegetable crops,Okra,Kashi Vibhuti (VRO-5),2005,"UP, MP, Punjab, Maharashtra, Bihar"
 Vegetable crops,Okra Hybrid,HBH-142,2005,"Uttarakhand, UP, HP, Jharkhand, Karnatka"
 Vegetable crops,Okra Hybrid,Kashi Bhairo (DVR-3),2005,"Punjab, UP, Jharkhand"
 Vegetable crops,Pea,Kashi Nandini (VRP-5),2005,"Released by IIHR, Bangalore"
-Vegetable crops,Pea,Narendra Subzi Matar-6,2005,NA
-Vegetable crops,Garden pea,"Arka Karthik, Arka Sampoorna",2007,NA
+Vegetable crops,Pea,Narendra Subzi Matar-6,2005,
+Vegetable crops,Garden pea,"Arka Karthik, Arka Sampoorna",2007,
 Vegetable crops,Pumpkin,NDPK-24,2005,"UP, Punjab, Delhi, Bihar, Haryana, Gujarat"
-Vegetable crops,Sponge gourd,Gujarat Sponge Gourd – 1 (JSGL-55),2005,"Gujarat, Maharashtra, MP"
+Vegetable crops,Sponge gourd,Gujarat Sponge Gourd Â– 1 (JSGL-55),2005,"Gujarat, Maharashtra, MP"
 Vegetable crops,Sponge gourd,Swarna Prabha (CHSG-1),2005,"UP, Bihar, Jharkhand"
-Vegetable crops,Tomato,Kashi Anupam (DVRT-2),2005,NA
+Vegetable crops,Tomato,Kashi Anupam (DVRT-2),2005,
 Vegetable crops,Tomato,Kashi Hemant (IIVR Sel-1),2005,"M.P, Maharashtra, UP"
 Vegetable crops,Tomato,Kashi Sharad (IIVR Sel-2),2005,"J&K, HP, Uttarakhand"
 Vegetable crops,Tomato,Kashi Vishesh (H-86),2005,"UP, West Bengal, Assam, HP, Maharashtra"
@@ -52,7 +52,7 @@ Tuber crops ,Sweet Potato,Sourin,2005,Suitable for rainfed & irrigated Condition
 Tuber crops ,Sweet Potato,Kishan,2005,High starch variety suitable for sandy Loam & black sandy soils Duration: 110-120 days
 Tuber crops ,Sweet Potato,Bidhan Jagannath (90/101),2005,For West Bengal State
 Tuber crops ,Sweet Potato,Birsa Sakarkand - 1 (90-704),2005,For West Bengal State
-Tuber crops ,Sweet Potato,Indira Sakarkand – 1 (IB-90-15-9),2005,For Chhattisgarh State
+Tuber crops ,Sweet Potato,Indira Sakarkand Â– 1 (IB-90-15-9),2005,For Chhattisgarh State
 Tuber crops ,Sweet Potato,NDSP- 10,2005,For Uttar Pradesh State
 Tuber crops ,Sweet Potato,Sree Kanaka (80/168),2005,For Kerala State
 Tuber crops ,Sweet Potato,ISGP-4,2006,For Maharashtra and Chhattisgarh States
@@ -66,7 +66,7 @@ Tuber crops ,Aroids,Pani Saru-1,2005,Suitable for water logged/ submerged Condit
 Tuber crops ,Aroids,Pani Saru-2,2005,Suitable for water logged/ submerged Condition of Odisha State Duration: 6-7 months
 Tuber crops ,Aroids,Sree Anthira,2006,First genetically improved elephant yam variety Duration: 9-10 months
 Tuber crops ,Arvi,Ahinakatchu,2005,For Assam State
-Tuber crops ,Arvi,Indira Arvi – 1 (BKCOL-2),2005,For Chattisgarh State
+Tuber crops ,Arvi,Indira Arvi Â– 1 (BKCOL-2),2005,For Chattisgarh State
 Tuber crops ,Arvi,Kadma Arvi,2005,For Jharkhand State
 Tuber crops ,Arvi,Sree Kiran (H-4),2005,For Kerala state
 Tuber crops ,Arvi,PKS-1,2006,For Uttar Pradesh State

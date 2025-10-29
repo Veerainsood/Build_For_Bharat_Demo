@@ -1,13 +1,13 @@
 Type of Crops,Crop,Variety,Sponsoring Authority,Season/ maturity duration in days,Recommended Zone
-Cereals, Paddy,Punjab Basmati-2,"Punjab Agricultural University, Ludhiana",Medium 140,Punjab
-Cereals, Paddy,Mugad  Siri-1253,"Agricultural Research Station, Mugad, UAS, Dharwad",Medium  135 -140,Irrigated & rainfed midland areas of northern Karnataka 
-Cereals, Paddy,"CR Dhan 500,  (IET 20220)","Central Rice Research Institute, Cuttack",Late  158-163,Odisha and Uttar Pradesh under deep water condition
-Cereals, Paddy,JGL 3844 (Jagtial Samba),"RARS, Jagtial, (AGRAU)",Medium Early 125-130,Andhra Pradesh
-Cereals, Paddy,JGL 3828 (Manair Sona),"RARS, Jagtial, (AGRAU)",Medium 130-135,Andhra Pradesh
-Cereals, Paddy,NDGR201  (IET 20048),"CRS, Ghaghraghat (NDUAT)",Medium Early 125-130,Semi-Deep water situations of Uttar Pradesh and Bihar
-Cereals, Paddy,Narendra Sugandha Dhan (NDR 6093)  (IET 19768),"NDUAT, Faizabad",Medium Early 125-130,Uttar Pradesh
-Cereals, Paddy,Narendra Usar Dhan 2009 (NDRK 50002) (IET 19667),"NDUAT, Faizabad",Medium 130-135,Saline/Alkaline areas of Uttar Pradesh
-Cereals,Rice (Hybrid) ,CO 4  (IET 21449)  (TNRH 174) ,"Tamil Nadu Agricultural Univerity, Coimbatore",NA,"Tamil Nadu, Gujarat & Maharahtra under irrigated condition during Rabi season for Southern Zone & Kharif season for Western Zone"
+Cereals,Â Paddy,Punjab Basmati-2,"Punjab Agricultural University, Ludhiana",Medium 140,Punjab
+Cereals,Â Paddy,Mugad Â Siri-1253,"Agricultural Research Station, Mugad, UAS, Dharwad",Medium  135 -140,Irrigated & rainfed midland areas of northern Karnataka 
+Cereals,Â Paddy,"CR Dhan 500,  (IET 20220)","Central Rice Research Institute, Cuttack",Late  158-163,Odisha and Uttar Pradesh under deep water condition
+Cereals,Â Paddy,JGL 3844 (Jagtial Samba),"RARS, Jagtial, (AGRAU)",Medium Early 125-130,Andhra Pradesh
+Cereals,Â Paddy,JGL 3828 (Manair Sona),"RARS, Jagtial, (AGRAU)",Medium 130-135,Andhra Pradesh
+Cereals,Â Paddy,NDGR201  (IET 20048),"CRS, Ghaghraghat (NDUAT)",Medium Early 125-130,Semi-Deep water situations of Uttar Pradesh and Bihar
+Cereals,Â Paddy,Narendra Sugandha Dhan (NDR 6093)  (IET 19768),"NDUAT, Faizabad",Medium Early 125-130,Uttar Pradesh
+Cereals,Â Paddy,Narendra Usar Dhan 2009 (NDRK 50002) (IET 19667),"NDUAT, Faizabad",Medium 130-135,Saline/Alkaline areas of Uttar Pradesh
+Cereals,Rice (Hybrid) ,CO 4  (IET 21449)  (TNRH 174) ,"Tamil Nadu Agricultural Univerity, Coimbatore",,"Tamil Nadu, Gujarat & Maharahtra under irrigated condition during Rabi season for Southern Zone & Kharif season for Western Zone"
 Cereals,Rice (Hybrid) ,NK 5251 (IET 19738) (Hybrid),"Syngenta India Limited, Hyderabad",Medium Early 125-130,"Tamil Nadu, Karnataka, Andhra Pradesh, Maharashtra, Gujarat"
 Cereals,Rice (Hybrid) ,US 382 (IET 20727) (Hybrid),"Seed Works International  Pvt. Ltd., Hyderabad",Medium Early 115-128 ,"Tripura, Madhya Pradesh and  Karnataka"
 Cereals,Rice (Hybrid) ,Arize Tej (HRI 169) (IET21411) (Hybrid),"Bayer BioScience Pvt Ltd.,  Hyderabad.",Mid early 122 - 126 ,"Bihar, Chhattisgarh, Gujarat, Andhra Pradesh and Tamil Nadu under irrigated timely sown condition in Kharif season"
@@ -19,7 +19,7 @@ Cereals,Wheat,PBW 644,"Punjab Agricultural University, Ludhiana",Late  137-167,"
 Cereals,Wheat,UAS-428 (Durum),"UAS, Dharwad",Medium  108,"Maharashtra, Karnataka, Andhra Pradesh, Goa, Plain of Tamil Nadu"
 Cereals,Wheat,TL  2969  (Triticale),"Punjab Agricultural University, Ludhiana",152-187,"Punjab, Haryana, Delhi, Rajasthan (except Kota and Udaipur Division), Western U.P. (except Jhansi division), parts of J & K (Kathua district), parts of Himachal Pradesh (Una district and Poanta Valley) and Tarai Region of Uttrakhand"
 Cereals,Wheat,Pusa Pachheti (HD 3059),"Indian Agriculural Research Institute, New Delhi",Late 121,"Punjab, Haryana, Delhi, Rajasthan (except Kota and Udaipur Division), Western U.P. (except Jhansi division), parts of J & K (Kathua district), parts of Himachal Pradesh (Una district and Poanta Valley) and Tarai Region of Uttrakhand"
-Cereals,Maize,SMH-3904,Shakti Seeds,Kharif/ Late  >96 days ," Bihar, Uttar Pradesh, Jharkhand, Odisha, Andhra Pradesh, Karnataka, Tamil Nadu and Maharashtra under Kharif season "
+Cereals,Maize,SMH-3904,Shakti Seeds,Kharif/ Late  >96 days ,"Â Bihar, Uttar Pradesh, Jharkhand, Odisha, Andhra Pradesh, Karnataka, Tamil Nadu and Maharashtra under Kharif season "
 Cereals,Maize,KMH-25K60 (Hybrid),"Kaveri Seeds Company limited, Secunderabad",Kharif/ Medium <95 days,"Andhra Pradesh, Maharashtra, Karnataka and Tamil Nadu"
 Cereals,Maize,KMH 3712 (Hybrid),"Kaveri Seed Company limited, Secunderabad",Kharif/ Medium <95 days,"Punjab, Haryana, Delhi, Uttar Pradesh, Bihar, Jharkhand, Odisha, Rajasthan, Gujarat, Madhya Pradesh, and Chhattisgarh"
 Cereals,Maize,KMH-218 Plus (Hybrid),"Kaveri Seed Company  limited, Secunderabad",Kharif/ Medium <95 days,"Eastern Uttar Pradesh, Bihar, Odisha and Jharkhand in Kharif seasons"
@@ -40,28 +40,28 @@ Cereals,Pearl millet ,MP-7792 (MH-1609),"Metahelix Life Sciences Limited, Bangal
 Cereals,Pearl millet ,86M86  (MH 1684) (Hybrid),"Pioneer Overseas Corporation, Hyderabad",Late 80-85,"Rajasthan, Gujarat, Haryana, U.P, M.P, Punjab, Delhi, Maharashtra, Karnataka, Andhra Pradesh and Tamil Nadu"
 Cereals,Pearl millet ,86M66 (MSH 226) (Hyrid),"Pioneer Overseas Corp., Hyderabad",Late 90,"Summer growing areas of Gujarat Maharashtra, Rajasthan & Tamil Nadu"
 Cereals,Pearl millet ,Kaveri Super Boss (Hybrid)  (MH 1553) ,"Kaveri Seeds Co. Ltd., Secunderabad",Late 85,"Rajasthan, Gujarat, Haryana, Punjab, Delhi, UP, Maharashtra, Karnataka, A.P and Tamil Nadu"
-Cereals,Finger millet,VL Mandua  347 (VL 347),"Vivekananda Parvetiya Krishi Anuandhan Sansthan (ICAR), Almora",Early  <100,"Bihar, Gujarat, Jharkhand, Karnataka, Madhya Pradesh and Uttarakhand under rainfed condition in Khari season"
-Cereals,Finger millet,Dapoli Safed -1,Konkan krishi vidyapeeth.  Dapoli.,Late 125-130,Konkan region of Maharashtra
-Oil seed crops,Castor,DSP 222 (Hyrid),"Dantiwada Seed Pvt. Ltd. 211/Sakar - V, B/H : Natraj  Cinema, Ashram Road, Ahmadabad, Gujarat",Late  123-148,"Gujarat, Rajasthan, Uttar Pradesh and Haryana"
+Cereals,Finger millet,VL ManduaÂ  347 (VL 347),"Vivekananda Parvetiya Krishi Anuandhan Sansthan (ICAR), Almora",Early  <100,"Bihar, Gujarat, Jharkhand, Karnataka, Madhya Pradesh and Uttarakhand under rainfed condition in Khari season"
+Cereals,Finger millet,Dapoli Safed -1,KonkanÂ krishiÂ vidyapeeth. Â Dapoli.,Late 125-130,Konkan region of Maharashtra
+Oil seed crops,Castor,DSP 222 (Hyrid),"DantiwadaÂ SeedÂ Pvt.Â Ltd.Â 211/SakarÂ -Â V,Â B/HÂ :Â NatrajÂ  Cinema,Â Ashram Road,Â Ahmadabad,Â Gujarat",Late  123-148,"Gujarat, Rajasthan, Uttar Pradesh and Haryana"
 Oil seed crops,Indian Mustard,Pant Rai-19 (PR-2006-1),"G. B. Pant University of Agriculture & Technology, Pantnagar",Medium early 99-133,"Jammu & Kashmir, Punjab, Haryana, New Delhi under irrigated condition in Rabi season"
 Oil seed crops,Indian Mustard,CORAL-437  (PAC-437) ,"Advanta India Ltd, Hyderabad",Medium  140-150,"Punjab, Haryana, New Delhi, Jammu & Rajasthan under irrigated condition"
 Oil seed crops,Indian Mustard,RGN-236,"Agricultural Research Station, S. K. Rajasthan Agricultural University, Sriganganagar ",Medium 126-128,"Punjab, Haryana, New Delhi, Jammu and parts of Rajasthan for late sown irrigated condition in Rabi season"
 Oil seed crops,Indian Mustard,RGN-229,"Agricultural Research Station, S. K. Rajasthan Agricultural University, Sriganganagar",Medium  140-150,"Delhi, Haryana, Punjab, Jammu and all parts of Rajasthan, suitable for rainfed condition"
-Oil seed crops,Sesame,DSS-9,"Department of Genetics and Plant Breeding, college  of  Agriculture, Dharwad",90-95,North-Eastern transitional and  dry zones of the Karnataka
-Oil seed crops,Sesame,JLT-408,"Oilseeds Research Station,  MPKV, Jalgaon ", Kharif  80-85,"Assured rainfall zone of Khandesh and adjoining areas of Vidharba, Marathwada region"
-Oil seed crops,Sun-flower,RSFH-130 (Bhadra),"Main Agril. Research Station, UAS-R, P.B.No.329,Raichur, Karnataka",100 , Zone-II (Karnataka)
+Oil seed crops,Sesame,DSS-9,"DepartmentÂ ofÂ GeneticsÂ andÂ PlantÂ Breeding, college Â ofÂ  Agriculture,Â Dharwad",90-95,North-EasternÂ transitionalÂ andÂ  dry zonesÂ ofÂ theÂ Karnataka
+Oil seed crops,Sesame,JLT-408,"OilseedsÂ ResearchÂ Station, Â MPKV, JalgaonÂ ",Â Kharif  80-85,"Assured rainfall zone of Khandesh and adjoining areas of Vidharba, Marathwada region"
+Oil seed crops,Sun-flower,RSFH-130 (Bhadra),"Main Agril. Research Station, UAS-R, P.B.No.329,Raichur, Karnataka",100Â ,Â Zone-II (Karnataka)
 Oil seed crops,Sun-flower,RSFV-901 (Kanthi),"Main Agril. Research Station, UAS-R, P.B.No.329,Raichur, Karnataka",95-100,Zone-II (Karnataka)
-Pulses,Black Gram (Urd)),Vishwas (NUL-7),"Nirmal Seeds Pvt. Ltd.,  Pachora - Dist. Algaon,, Maharashtra",Early ,"Maharashtra, Gujarat, Madhya Pradesh, Chhattisgarh, Bundelkhand region of Uttar Pradesh and part of Rajasthan"
-Pulses,NA,TU 40,"Nuclear Agriculture and  Biotechnology Division, BARC, Mumbai.",NA,"Andhra Pradesh, Karnataka, Tamil Nadu and Odisha for rabi cultivation"
-Pulses,NA,DU-1,"UAS, Dharwad",Kharif,Karnatka
+Pulses,Black Gram (Urd)),Vishwas (NUL-7),"NirmalÂ SeedsÂ Pvt.Â Ltd.,Â  PachoraÂ -Â Dist.Â Algaon,, Maharashtra",EarlyÂ ,"Maharashtra, Gujarat, Madhya Pradesh, Chhattisgarh, Bundelkhand region of Uttar Pradesh and part of Rajasthan"
+Pulses,,TU 40,"Nuclear Agriculture and  Biotechnology Division, BARC, Mumbai.",,"Andhra Pradesh, Karnataka, Tamil Nadu and Odisha for rabi cultivation"
+Pulses,,DU-1,"UAS, Dharwad",Kharif,Karnatka
 Pulses,Lentil,IPL-316,"Indian Institute of Pulses Research, Kanpur.",Rabi,"Madhya Pradesh, Chhattisgarh, Parts of Rajasthan and  Bundelkhand of Uttar Pradesh under normal sown"
-Pulses,Green gram (Moong),KM 2195 (Swati),"C.S.A. University of Agriculture &Technology, Kanpur", Kharif , Uttar Pradesh
-Pulses,Horse Gram,Gujarat Dantiwada Horsegram-1 (GHG-5),"S. D. Agricultural University, Sardarkrushinagar", Early  89-100,"Gujarat,Rajasthan,  Uttarakhand, Jharkhand, Uttar Pradesh and Maharashtra under rainfed condition in kharif season"
-Pulses,Chick-pea,HK-4  (HK 05-169),"CCS Haryana Agricultural University, Hisar",136,"Eastern Uttar Pradesh, Bihar, Jharkhand and West Bengal under both rainfed and irrigated condition         "
+Pulses,Green gram (Moong),KM 2195 (Swati),"C.S.A. University of Agriculture &Technology, Kanpur",Â Kharif ,Â Uttar Pradesh
+Pulses,Horse Gram,Gujarat Dantiwada Horsegram-1 (GHG-5),"S. D. Agricultural University, Sardarkrushinagar",Â Early  89-100,"Gujarat,Rajasthan,  Uttarakhand, Jharkhand, Uttar Pradesh and Maharashtra under rainfed condition in kharif season"
+Pulses,Chick-pea,HK-4  (HK 05-169),"CCS Haryana Agricultural University, Hisar",136,"Eastern Uttar Pradesh, Bihar, Jharkhand and West Bengal under both rainfed and irrigated conditionÂ Â Â Â Â Â Â Â Â "
 Pulses,Chick-pea,L-555 (GLK-26155),"Punjab Agricultural University, Ludhiana",Medium 146,"Punjab, Haryana, Rajasthan, Uttar Pradesh & Uttrakhand"
-Pulses,Chick-pea,Raj Vijay Gram 203 (RVG 203),"RAK College of  Agriculture, MP",NA,"Madhya Pradesh, Gujarat, Maharashtra, Bundel kh and areas of Uttar Pradesh and Southern Rajasthan"
-Pulses,Field pea,Gomati  (TRCP – 8),"ICAR Research Complex for NEH Region, Tripura Centre,  Lembucherra",Medium 139,"Uttarakhand Hills, Jammu & Kashmir &   North Eastern States under normal sown Rabi season as  pure crop "
-Pulses,Field pea,HFP 529,"CCS HAU, Hisar",Early 123, North wet plain zone under irrigated condition
+Pulses,Chick-pea,Raj Vijay Gram 203 (RVG 203),"RAK College of  Agriculture, MP",,"Madhya Pradesh, Gujarat, Maharashtra, Bundel kh and areas of Uttar Pradesh and Southern Rajasthan"
+Pulses,Field pea,Gomati  (TRCP Â– 8),"ICAR Research Complex for NEH Region, Tripura Centre,  Lembucherra",Medium 139,"UttarakhandÂ Hills,Â JammuÂ &Â KashmirÂ & Â  NorthÂ EasternÂ States underÂ normalÂ sownÂ RabiÂ seasonÂ as Â pureÂ crop "
+Pulses,Field pea,HFP 529,"CCS HAU, Hisar",Early 123,Â North wet plain zone under irrigated condition
 Pulses,Cowpea,MFC-08-14 (Forage),"Univerity of Agricultural Sciences, Bangalore",Medium 90,"Karnataka, Kerala, Andhra Pradesh, Tamilnadu and Pondicherry (Rainfed Eco-system)"
 SUGAR CROPS,Sugar-cane,Karan-9  (Co-05011),"Sugarcane Breeding Institute, Regional Centre, Karnal",Mid late,"Punjab, Haryana, Rajasthan, Uttarakhand, Western and Central U.P under normal climatic condition"
 SUGAR CROPS,Sugar-cane,Co 0237,"Sugarcane Breeding Institute, Regional Centre, Karnal",Medium 180-210,"Punjab, Haryana, Rajasthan, Uttarakhand and Uttar Pradesh"
@@ -69,8 +69,8 @@ SUGAR CROPS,Sugar-cane,Co 0403,"Sugarcane Breeding Institute, Regional Centre, C
 SUGAR CROPS,Sugar-cane,Pratap Ganna-1  (CoPk-05191),"Maharana Pratap University of Agricultural & Technology, Kota",Early 240-300 ,"Uttar Pradesh, Uttrakhand, Haryana, Punjab & Rajasthan"
 SUGAR CROPS,Sugar-cane,CoVSI-9805,"Vasant Dada Institute, Maharashtta",Mid late,Maharashtta
 FIBRE CROPS,Cotton,H-1300,"CCS Haryana Agricultural University, Hisar",165-170 ,"Punjab, Haryana, Rajasthan and Uttar Pradesh under normal sown and irrigated condition"
-FIBRE CROPS,NA,Nirmal-12 (NACH-12),"Nirmal Seeds Pvt. Ltd., Jalgaon",150-160,"South Zone States of Karnataka, Andhra Pradesh and Tamil Nadu under rainfed conditions"
-FIBRE CROPS,Jute,JROM-1 (PRADIP),"Central Research Institute for Jute and Allied Fibres (ICAR), Barrackpore, Kolkata (WB)",NA,Tossa Jute growing belt of India for growing during mid-March to last week of April
-FIBRE CROPS,NA,JRCM-2 (PARTHO),"Central Research Institute for Jute and Allied Fibres (ICAR), Barrackpore, Kolkata (WB)",NA,Tossa Jute growing belt of India for growing during mid-March to last week of April
-FIBRE CROPS,Mesta,Shakti  (JBM-81),"Central Research Institute for Jute and Allied Fibres (ICAR), Barrackpore, Kolkata (WB)",NA,Traditional Mesta growing belt of the country under mid and highland rainfed situations.
-FIBRE CROPS,Sun-hemp,Ankur (SUIN-037),"Central Research Institute for Jute and Allied Fibres (ICAR), Barrackpore, Kolkata (WB)",NA,"Uttar Pradesh, Bihar, Rajasthan, Maharashtra, Odisha and Madhya Pradesh"
+FIBRE CROPS,,Nirmal-12 (NACH-12),"Nirmal Seeds Pvt. Ltd., Jalgaon",150-160,"South Zone States of Karnataka, Andhra Pradesh and Tamil Nadu under rainfed conditions"
+FIBRE CROPS,Jute,JROM-1 (PRADIP),"Central Research Institute for Jute and Allied Fibres (ICAR), Barrackpore, Kolkata (WB)",,Tossa Jute growing belt of India for growing during mid-March to last week of April
+FIBRE CROPS,,JRCM-2 (PARTHO),"Central Research Institute for Jute and Allied Fibres (ICAR), Barrackpore, Kolkata (WB)",,Tossa Jute growing belt of India for growing during mid-March to last week of April
+FIBRE CROPS,Mesta,Shakti  (JBM-81),"Central Research Institute for Jute and Allied Fibres (ICAR), Barrackpore, Kolkata (WB)",,Traditional Mesta growing belt of the country under mid and highland rainfed situations.
+FIBRE CROPS,Sun-hemp,Ankur (SUIN-037),"Central Research Institute for Jute and Allied Fibres (ICAR), Barrackpore, Kolkata (WB)",,"Uttar Pradesh, Bihar, Rajasthan, Maharashtra, Odisha and Madhya Pradesh"

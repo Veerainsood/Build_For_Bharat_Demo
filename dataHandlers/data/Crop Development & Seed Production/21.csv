@@ -1,9 +1,9 @@
-Crop,Traditional method - Water,Traditional method - Yield,Drip Irrigation method - Water,Drip Irrigation method - Yield,% Saving in water   ,% Increase in yield 
+Crop,Traditional method - Water,Traditional method - Yield,Drip Irrigation method - Water,Drip Irrigation method - Yield,% Saving in water,% Increase in yield
 Banana,1760,57.5,970,87.5,45,52
 Grapes,532,26.4,278,32.5,48,23
-Citrus,1660,100,640,150,61,50
-Tomato,300,32,180,48,39,50
-Brinjal,90,28,42,32,53,14
+Citrus,1660,100.0,640,150.0,61,50
+Tomato,300,32.0,180,48.0,39,50
+Brinjal,90,28.0,42,32.0,53,14
 Chilli,100,4.2,42,6.1,62,44
-Sugarcane,2150,128,940,17,56,33
+Sugarcane,2150,128.0,940,17.0,56,33
 Cotton,90,2.3,42,2.9,53,27
