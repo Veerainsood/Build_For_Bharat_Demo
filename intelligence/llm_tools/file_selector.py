@@ -4,6 +4,7 @@ import numpy as np
 from sentence_transformers import SentenceTransformer
 from .local_llm import LocalLLM
 import os
+import ollama
 
 class FileSearchTool:
     """
@@ -24,7 +25,8 @@ class FileSearchTool:
             self.family_name, entries = "unknown", family_index
 
         self.family_index = entries  # list[{id,title,index}]
-        self.llm = LocalLLM(model=model)
+        # self.llm = LocalLLM(model=model)
+        self.model = model
         try:
             model_path = "./models/bge-base-en-v1.5"
             if not os.path.exists(model_path):
@@ -37,9 +39,14 @@ class FileSearchTool:
             )
         except Exception:
             print("⚠️ Local embedding model not found. Downloading...")
-            self.sentence_model = SentenceTransformer("BAAI/bge-base-en-v1.5")
+            self.sentence_model = SentenceTransformer("BAAI/bge-base-en-v1.5" , device="cpu")
             os.makedirs("./models", exist_ok=True)
             self.sentence_model.save(model_path)
+            self.sentence_model = SentenceTransformer(
+                model_path,
+                device="cpu",
+                local_files_only=True
+            )
             print("✅ Model cached locally.")
 
         self.cache_path = cache_dir
@@ -202,7 +209,7 @@ class FileSearchTool:
             Return -1 if none match.
             """
             # breakpoint()
-            raw = self.llm.chat(prompt, temperature=0)
+            raw = ollama.chat(model=self.model, messages=[{"role": "user", "content": prompt}]).get("message", {}).get("content", "").strip()
             # breakpoint()
             nums = [int(n) for n in re.findall(r"\d+", raw)] or [-1]
             selected = [
@@ -228,7 +235,7 @@ class FileSearchTool:
             If unsure, include fewer. No explanations. Choose at least 1.
         """
         # breakpoint()
-        raw = self.llm.chat(prompt, temperature=0) # 25sec
+        raw = ollama.chat(model=self.model, messages=[{"role": "user", "content": prompt}]).get("message", {}).get("content", "").strip()
         # breakpoint()
         nums = [int(n) for n in re.findall(r"\d+", raw)]
 

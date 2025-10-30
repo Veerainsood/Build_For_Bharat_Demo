@@ -3,6 +3,8 @@ import json, re, numpy as np
 from sentence_transformers import SentenceTransformer
 from .local_llm import LocalLLM
 import os
+import ollama
+
 class PMKisanSelector:
     """
     Handles hierarchical selection for PM-KISAN datasets.
@@ -11,7 +13,8 @@ class PMKisanSelector:
 
     def __init__(self, root_json, model="mistral-nemo:12b", cache_dir="intelligence/embedding_cache/"):
         self.root_json = root_json
-        self.llm = LocalLLM(model=model)
+        # self.llm = LocalLLM(model=model)
+        self.model = model
         self.sentence_model = SentenceTransformer(
             "./models/all-MiniLM-L6-v2",
             device="cpu",  # or "cuda" if GPU is available
@@ -99,7 +102,7 @@ class PMKisanSelector:
             {candidates}
             """
             # breakpoint()
-            raw = self.llm.chat(prompt, temperature=0)
+            raw = ollama.chat(model=self.model, messages=[{"role": "user", "content": prompt}]).get("message", {}).get("content", "").strip()
             # breakpoint()
             import re
             nums = [abs(int(n)) for n in re.findall(r"\d+", raw)]

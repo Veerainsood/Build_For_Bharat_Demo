@@ -1,5 +1,5 @@
 # intelligence/llm_tools/local_llm.py
-import requests, json
+import ollama
 
 class LocalLLM:
     def __init__(self, model: str = "qwen2.5:14b", host: str = "http://localhost:11434"):
@@ -10,14 +10,4 @@ class LocalLLM:
         """
         Calls Ollama's /api/generate (non-OpenAI). Returns full text.
         """
-        url = f"{self.host}/api/generate"
-        payload = {"model": self.model, "prompt": prompt, "options": {"temperature": temperature}}
-        with requests.post(url, json=payload, stream=True, timeout=timeout) as r:
-            r.raise_for_status()
-            text = ""
-            for line in r.iter_lines():
-                if not line:
-                    continue
-                obj = json.loads(line.decode("utf-8"))
-                text += obj.get("response", "")
-            return text.strip()
+        

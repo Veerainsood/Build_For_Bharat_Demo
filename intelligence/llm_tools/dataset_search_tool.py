@@ -4,7 +4,8 @@ import re
 import numpy as np
 from sentence_transformers import SentenceTransformer
 from .local_llm import LocalLLM
-
+import os
+import ollama
 
 class DatasetSearchTool:
     """
@@ -13,9 +14,10 @@ class DatasetSearchTool:
     Returns: {"selected_datasets": ["<family>"]} or {"selected_datasets": [-1]}.
     """
 
-    def __init__(self, dataset_map: dict, model: str = "mistral:7b"):
+    def __init__(self, dataset_map: dict, model: str = "mistral-nemo:12b"):
         self.dataset_map = dataset_map
-        self.llm = LocalLLM(model=model)
+        self.model = model
+        # self.llm = LocalLLM(model=model)
         self.dataset_ids = {i + 1: name for i, name in enumerate(dataset_map.keys())}
 
         # ---- Aliases for rule-based and embedding cues ----
@@ -40,9 +42,14 @@ class DatasetSearchTool:
             )
         except Exception:
             print("⚠️ Local embedding model not found. Downloading...")
-            self.sentence_model = SentenceTransformer("all-MiniLM-L6-v2")
+            self.sentence_model = SentenceTransformer("all-MiniLM-L6-v2" , device="cpu")
             os.makedirs("./models", exist_ok=True)
-            self.sentence_model.save("./models/all-MiniLM-L6-v2")
+            self.sentence_model.save(model_path)
+            self.sentence_model = SentenceTransformer(
+                model_path,
+                device="cpu",
+                local_files_only=True
+            )
             print("✅ Model cached locally.")
 
         dataset_texts = [
@@ -71,11 +78,11 @@ class DatasetSearchTool:
 
     # ---- Main selector ----
     def select(self, query: str):
-        selected = self.retrieve_relevant_families(query)
+        # selected = self.retrieve_relevant_families(query)
 
-        # if embeddings find strong match(es), skip LLM
-        if selected != [-1]:
-            return {"selected_datasets": selected}
+        # # if embeddings find strong match(es), skip LLM
+        # if selected != [-1]:
+        #     return {"selected_datasets": selected}
 
         # else fallback to LLM reasoning
         alias_lines = "\n".join(
@@ -84,32 +91,34 @@ class DatasetSearchTool:
         )
 
         prompt = f"""
-        You are a dataset-family selector for Build for Bharat.
+        SYSTEM: You are a strict dataset selector. 
+        Your job is classification, not answering the question.
 
-        TASK:
-        Identify ALL dataset family IDs that contain information relevant to the query.
-        If the question combines topics from multiple areas (for example rainfall affecting crops),
-        return every applicable ID, separated by commas in relevance order.
+        INSTRUCTIONS:
+        - Output ONLY dataset IDs.
+        - NO text, NO explanation, NO punctuation.
+        - If unsure, output -1.
+        - If multiple topics, output all relevant IDs.
 
-        DATASETS (with keywords):
+        DATASETS:
         {alias_lines}
 
-        USER QUERY:
-        "{query}"
+        Examples:
+        Q: "rainfall effect on rice yield"  -> 5 3
+        Q: "number of PM Kisan beneficiaries in UP" -> 9
+        Q: "sugarcane production by district in Maharashtra" -> 3
+        Q: "compare crop data Maharashtra vs Karnataka" -> 3
+        Q: "education scheme growth in Bihar" -> -1
 
-        RESPONSE RULES:
-        - Respond ONLY with integers (like 5 or 3,5 or 1,2,4).
-        - Include multiple numbers if the query overlaps multiple dataset topics.
-        - Return -1 if none match.
-        - Do NOT include any words, punctuation, or JSON formatting.
-
-        Hint:
-        If the query mixes natural phenomena (rain, temperature, weather, climate)
-        with agriculture (crops, seeds, yields, farming),
-        then you must include both 5 and 3.
+        User query: "{query}"
+        Answer:
         """
         # breakpoint()
-        raw = self.llm.chat(prompt, temperature=0)
+        raw = raw = ollama.chat(
+            model=self.model,
+            messages=[{"role": "system", "content": "Return ONLY numbers. No text."},
+                    {"role": "user", "content": prompt}]
+        ).get("message", {}).get("content", "").strip()
         # breakpoint()
         ids = self._extract_numbers(raw)
         valid = [self.dataset_ids[i] for i in ids if i in self.dataset_ids]

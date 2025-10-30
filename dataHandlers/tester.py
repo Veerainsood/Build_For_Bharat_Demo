@@ -1,7 +1,7 @@
 import pandas as pd
 from pathlib import Path
 
-def scan_crop_datasets(folder="dataHandlers/data/Research, Education & Biotechnology"):
+def scan_crop_datasets(folder="dataHandlers/data/Temperature and Rainfall"):
     folder = Path(folder)
     bad_files = []
     # breakpoint()

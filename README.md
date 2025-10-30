@@ -83,6 +83,7 @@ Download from https://ollama.com/download
 Once installed, pull the required models:
 
       ollama pull mistral-nemo:12b
+      ollama pull mistral:7b
       ollama pull qwen2.5:7b
       ollama pull qwen2.5:14b
       ollama pull phi3:mini
