@@ -1,39 +1,62 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./bharat.css";
-import "./chat.css"
+import "./chat.css";
+
 export default function BharatUI() {
   const [loading, setLoading] = useState(false);
   const [question, setQuestion] = useState("");
   const [currentResponse, setCurrentResponse] = useState([]);
+  const [currentStage, setCurrentStage] = useState("");
+  const scrollRef = useRef(null);
+
+  const stageOrder = [
+    "status",
+    "family",
+    "datasets",
+    "registry",
+    "head1",
+    "head2",
+    "head3",
+    "done",
+  ];
 
   const ask = async (q) => {
     if (!q.trim() || loading) return;
     setLoading(true);
-    setCurrentResponse([]); // clear previous content
+    setCurrentResponse([]);
+    setCurrentStage("status");
 
     const evt = new EventSource(`http://127.0.0.1:8000/query?query=${encodeURIComponent(q)}`);
 
     const pushStage = (type, data) => {
       setCurrentResponse((r) => [...r, { type, data }]);
+      setCurrentStage(type);
     };
 
-    evt.addEventListener("status", (e) => pushStage("status", JSON.parse(e.data)));
-    evt.addEventListener("family", (e) => pushStage("family", JSON.parse(e.data)));
-    evt.addEventListener("datasets", (e) => pushStage("datasets", JSON.parse(e.data)));
-    evt.addEventListener("registry", (e) => pushStage("registry", JSON.parse(e.data)));
-    evt.addEventListener("head1", (e) => pushStage("head1", JSON.parse(e.data)));
-    evt.addEventListener("head2", (e) => pushStage("head2", JSON.parse(e.data)));
-    evt.addEventListener("head3", (e) => pushStage("head3", JSON.parse(e.data)));
+    stageOrder.forEach((t) =>
+      evt.addEventListener(t, (e) => pushStage(t, JSON.parse(e.data)))
+    );
+
     evt.addEventListener("done", (e) => {
       pushStage("done", JSON.parse(e.data));
       evt.close();
       setLoading(false);
     });
+
     evt.onerror = () => {
       evt.close();
       setLoading(false);
     };
   };
+
+  // smooth scroll to bottom on new message
+  useEffect(() => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+    }
+  }, [currentResponse]);
+
+  const currentIndex = stageOrder.indexOf(currentStage);
 
   return (
     <div className="bharat-root">
@@ -44,21 +67,42 @@ export default function BharatUI() {
         <p className="subtitle">Intelligence Pipeline Interface</p>
       </header>
 
-      {/* centered floating result box */}
-      {currentResponse.length > 0 && (
-        <div className="floating-box">
-          <div className="scrollable-content">
-            {currentResponse.map((s, i) => (
-              <div key={i} className="stage-line">
-                <strong>{s.type.toUpperCase()}</strong>
-                <pre>{JSON.stringify(s.data, null, 2)}</pre>
-              </div>
-            ))}
+      <div className="content-container">
+        {/* floating output box */}
+        {currentResponse.length > 0 && (
+          <div className="floating-box">
+            <div className="scrollable-content" ref={scrollRef}>
+              {currentResponse.map((s, i) => (
+                <div key={i} className="stage-line">
+                  <strong>{s.type.toUpperCase()}</strong>
+                  <pre>{JSON.stringify(s.data, null, 2)}</pre>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      )}
+        )}
 
-      {/* fixed bottom query box */}
+        {/* right-side pipeline buttons */}
+        <div className="right-stages-fixed">
+          {stageOrder.map((s, i) => {
+            const isDoneOrCurrent = i <= currentIndex;  // all past + current = blue
+            const isNext = i === currentIndex + 1;      // next = yellow pulse
+            const className = isDoneOrCurrent
+              ? "stage-btn active"
+              : isNext
+              ? "stage-btn upcoming"
+              : "stage-btn idle";
+
+            return (
+              <div key={s} className={className}>
+                {s.toUpperCase()}
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* input area */}
       <div className="query-box fixed">
         <h2 className="query-title">Ask anything</h2>
         <div className="input-row">
@@ -70,7 +114,11 @@ export default function BharatUI() {
             className="input"
             disabled={loading}
           />
-          <button onClick={() => ask(question)} disabled={loading} className="button">
+          <button
+            onClick={() => ask(question)}
+            disabled={loading}
+            className="button"
+          >
             {loading ? "Running..." : "Ask"}
           </button>
         </div>
