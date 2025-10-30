@@ -53,14 +53,28 @@ CS22B049
 
 ## ⚙️ Setup & Installation
 
+I have used  deadsnakes repo
+```bash=
+sudo add-apt-repository ppa:deadsnakes/nightly
+sudo apt update
+sudo apt install python3.10 python3.10-venv python3.10-distutils
+```
+
+then do 
+```bash=
+python3.10 -m venv .bharat
+```
+
+then 
+```bash=
+source .bharat/bin/activate
+```
+
 ### 1️⃣ Install dependencies
 
-      pip install -r requirements.txt
-
-Core dependencies:
-
-      fastapi uvicorn duckdb pandas sentence-transformers ollama
-
+```bash=
+pip install -r requirements.txt
+```
 ---
 
 ### 2️⃣ Install Ollama
@@ -107,20 +121,29 @@ This ensures your embedding model is automatically downloaded and cached once.
 
 ## 🚀 Running the System
 
-### 1️⃣ Start Ollama
-
-      ollama serve
-
-### 2️⃣ Start the backend
-
-      cd Build_For_Bharat
-      uvicorn intelligence.backend:app --reload --port 8000
-
+### 1️⃣ Start the backend
+```bash=
+in the Build_For_Bharat_Demo-main repository (while in venv do)
+uvicorn intelligence.backend:app --reload --port 8000
+sudo systemctl stop ollama.service
+sudo systemctl disable ollama.service 
+```
+### 2️⃣ Start Ollama
+```bash=
+ollama serve
+```
 ### 3️⃣ Start the frontend
+```bash=
+cd bharat-ui
+npm install
+npm run dev
+```
 
-      cd bharat-ui
-      npm install
-      npm run dev
+### Note if your Node.js version is old <20.19 then update it using
+```bash=
+curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+sudo apt install -y nodejs
+```
 
 Then open http://localhost:5173
 
