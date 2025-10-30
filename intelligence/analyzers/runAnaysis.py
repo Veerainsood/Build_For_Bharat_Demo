@@ -137,7 +137,8 @@ class Analyser:
         try:
             ops = normalize_ops(safe_json_loads(seq))
         except Exception as e:
-            raise ValueError(f"Invalid JSON sequence: {e}")
+            results = registry.datasets
+            return results
 
         env = self._env_from_registry(registry)
         results = {}
@@ -161,6 +162,9 @@ class Analyser:
                 print(f"Error at step: {step}")
                 print("Repairing early.")
                 print("✅ Partial execution successfully.")
+                #check if results is empty if its empty return registry datasets
+                if not results:
+                    return registry.datasets
                 return results  # stop immediately
 
             # --- success path ---

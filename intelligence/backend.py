@@ -49,6 +49,7 @@ class Intellegence:
         
         yield send("next", {"stage": "datasets", "message": "Selecting datasets..."})    
         files_res = orch.select_files(query, res["selected_datasets"])
+        print(files_res)
         yield send("datasets", files_res)
         yield send("next", {"stage": "registry", "message": "Fetching and registering DataFrames..."})
         # to be retuned

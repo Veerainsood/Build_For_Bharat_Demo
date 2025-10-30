@@ -15,7 +15,7 @@ class FileSearchTool:
     then refines the ranking via a local LLM to pick the most relevant few.
     """
 
-    def __init__(self, family_index: dict, model="mistral-nemo:12b", cache_dir="intelligence/embedding_cache/"):
+    def __init__(self, family_index: dict, model="qwen2.5:14b", cache_dir="intelligence/embedding_cache/"):
         # unwrap: {"Temperature and Rainfall": [ {...}, {...} ]}
         # breakpoint()
         os.makedirs(cache_dir, mode=0o777, exist_ok=True)

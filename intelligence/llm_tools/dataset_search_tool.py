@@ -78,11 +78,11 @@ class DatasetSearchTool:
 
     # ---- Main selector ----
     def select(self, query: str):
-        # selected = self.retrieve_relevant_families(query)
+        selected = self.retrieve_relevant_families(query)
 
-        # # if embeddings find strong match(es), skip LLM
-        # if selected != [-1]:
-        #     return {"selected_datasets": selected}
+        # if embeddings find strong match(es), skip LLM
+        if selected != [-1]:
+            return {"selected_datasets": selected}
 
         # else fallback to LLM reasoning
         alias_lines = "\n".join(
