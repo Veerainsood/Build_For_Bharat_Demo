@@ -145,14 +145,26 @@ def query_endpoint(query: str):
 
 # if __name__ == '__main__':
 #     intellegent = Intellegence()
-#     queries = [
-#         "Compare the average annual rainfall in Tamil Nadu and Kerala for the last 5 available years. In parallel, list the top 5 most produced food crops (by volume) in each of those states during the same period, citing all data sources.",
-#         "crop varieties released for wheat",
-#         "Identify the district in Maharashtra with the highest production of Sugarcane in the most recent year available and compare that with the district with the lowest production of Sugarcane in Karnataka.",
-#         "beneficiaries under PM-KISAN in Nicobar district for 2022-23",
-#         "Analyze the production trend of Rice in Eastern Uttar Pradesh over the last decade. Correlate this trend with the corresponding rainfall data for the same period and summarize the apparent impact.",
-#         "A policy advisor is proposing a scheme to promote Millet (drought-resistant) over Paddy (water-intensive) in Telangana. Based on historical data from the last 10 years, list three strong data-backed arguments to support this policy, using both climate and agricultural datasets."
-#     ]
+    queries = [
+        # 1️⃣ Climate–Agriculture comparison
+        "Compare the average annual rainfall in Tamil Nadu and Kerala for the last 5 available years. In parallel, list the top 5 most produced food crops by volume in each of those states during the same period, with source citations from IMD and the Department of Agriculture.",
+
+        # 2️⃣ Crop variety lookup
+        "List all crop varieties released for Wheat under the 'Crop Development & Seed Production' sector, including the year of release and certifying institute.",
+
+        # 3️⃣ District-level production comparison (if available)
+        "Identify the district in Maharashtra with the highest sugarcane production in the most recent year available and compare it with the district in Karnataka that recorded the lowest sugarcane production for the same period.",
+
+        # 4️⃣ Scheme beneficiary stats
+        "Report the number of beneficiaries registered under the PM-KISAN scheme in Nicobar district for the financial year 2022–23.",
+
+        # 5️⃣ Trend + correlation (multi-dataset)
+        "Analyze the production trend of Rice in Eastern Uttar Pradesh over the last decade. Correlate this trend with annual rainfall data from IMD for the same region and summarize the apparent impact.",
+
+        # 6️⃣ Policy analysis query
+        "Evaluate a policy proposal to promote Millets (drought-resistant) over Paddy (water-intensive) in Telangana. Using the last 10 years of agricultural and climate data, provide three strong data-backed arguments supporting this policy, citing all sources."
+    ]
+
 
 #     for query in queries:
 #         print()
