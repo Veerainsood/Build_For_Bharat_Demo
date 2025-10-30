@@ -1,6 +1,6 @@
 import duckdb, json
 from pathlib import Path
-
+import pandas as pd
 DB_PATH = "dataHandlers/data/ogdp_index.db"
 ROOT_DIR = Path("dataHandlers/data/sectors")
 
@@ -28,14 +28,39 @@ GROUPS = {
     ],
 }
 
-def safe_filename(name: str) -> str:
-    return (
-        name.lower()
-        .replace(" & ", "_and_")
-        .replace(" ", "_")
-        .replace("/", "_")
-        .replace("-", "_")
-    )
+def safe_filename(name: str):
+    return name.lower().replace("&", "and").replace(" ", "_").replace("/", "_")
+
+def describe_file(file_path: Path, max_cols=6, max_rows=1, max_uniques=5):
+    try:
+        if file_path.suffix.lower() == ".csv":
+            df = pd.read_csv(file_path)
+        elif file_path.suffix.lower() in [".xls", ".xlsx"]:
+            df = pd.read_excel(file_path)
+        elif file_path.suffix.lower() == ".json":
+            df = pd.read_json(file_path)
+        else:
+            return None
+
+        cols = list(df.columns)[:max_cols]
+        desc = {
+            "shape": df.shape,
+            "columns": cols,
+            "sample": df.head(max_rows).to_dict(orient="records")
+        }
+
+        uniques = {}
+        for c in cols:
+            if df[c].dtype == "object":
+                vals = df[c].dropna().unique()[:max_uniques]
+                uniques[c] = vals.tolist() if hasattr(vals, "tolist") else list(vals)
+        if uniques:
+            desc["unique_values"] = uniques
+
+        return desc
+    except Exception as e:
+        return {"error": str(e)}
+
 
 def build_grouped_sector_files():
     con = duckdb.connect(DB_PATH, read_only=True)
@@ -54,11 +79,23 @@ def build_grouped_sector_files():
             print(f"⚠️  No datasets found for {group_name}")
             continue
 
-        data = {group_name: [{"id": r[0], "title": r[1], "index":idx} for idx , r in enumerate(all_rows)]}
-        path = ROOT_DIR / f"{safe_filename(group_name)}.json"
-        path.write_text(json.dumps(data, indent=2))
+        group_dir = Path("dataHandlers/data") / group_name
+        entries = []
+        for idx, (id_, title) in enumerate(all_rows):
+            entry = {"id": id_, "title": title, "index": idx}
+            # attach descriptor if local file exists
+            for ext in [".csv", ".xlsx", ".xls", ".json"]:
+                file_path = group_dir / f"{idx}{ext}"
+                if file_path.exists():
+                    entry["describe"] = describe_file(file_path)
+                    break
+            entries.append(entry)
 
-        print(f"✅ {group_name}: {len(all_rows)} datasets → {path}")
+        data = {group_name: entries}
+        out_path = ROOT_DIR / f"{safe_filename(group_name)}.json"
+        out_path.write_text(json.dumps(data, indent=2))
+
+        print(f"✅ {group_name}: {len(all_rows)} datasets → {out_path}")
 
     print("\n🎯 All grouped sector files written to:", ROOT_DIR)
 

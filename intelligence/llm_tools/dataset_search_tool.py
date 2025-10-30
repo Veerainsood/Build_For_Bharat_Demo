@@ -28,11 +28,22 @@ class DatasetSearchTool:
         }
 
         # ---- SentenceTransformer (CPU-only, pre-loaded once) ----
-        self.sentence_model = SentenceTransformer(
-            "./models/all-MiniLM-L6-v2",
-            device="cpu",  # or "cuda" if GPU is available
-            local_files_only=True
-        )
+        try:
+            model_path = "./models/all-MiniLM-L6-v2"
+            if not os.path.exists(model_path):
+                raise FileNotFoundError
+
+            self.sentence_model = SentenceTransformer(
+                model_path,
+                device="cpu",
+                local_files_only=True
+            )
+        except Exception:
+            print("⚠️ Local embedding model not found. Downloading...")
+            self.sentence_model = SentenceTransformer("all-MiniLM-L6-v2")
+            os.makedirs("./models", exist_ok=True)
+            self.sentence_model.save("./models/all-MiniLM-L6-v2")
+            print("✅ Model cached locally.")
 
         dataset_texts = [
             "Beneficiaries (PM-KISAN): farmers, government benefits, instalments, village-wise data",
@@ -97,9 +108,9 @@ class DatasetSearchTool:
         with agriculture (crops, seeds, yields, farming),
         then you must include both 5 and 3.
         """
-        breakpoint()
+        # breakpoint()
         raw = self.llm.chat(prompt, temperature=0)
-        breakpoint()
+        # breakpoint()
         ids = self._extract_numbers(raw)
         valid = [self.dataset_ids[i] for i in ids if i in self.dataset_ids]
         if not valid:

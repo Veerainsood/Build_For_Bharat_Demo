@@ -98,9 +98,9 @@ class PMKisanSelector:
 
             {candidates}
             """
-            breakpoint()
+            # breakpoint()
             raw = self.llm.chat(prompt, temperature=0)
-            breakpoint()
+            # breakpoint()
             import re
             nums = [abs(int(n)) for n in re.findall(r"\d+", raw)]
             best_idx = top_idx[nums[0]-1] if nums else top_idx[0]

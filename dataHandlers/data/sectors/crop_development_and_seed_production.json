@@ -3,122 +3,1203 @@
     {
       "id": "https://data.gov.in/files/ogd20/ogdpv2dms/s3fs-public/datafile/Table_2.3_Number_of_field_crops_varieties_released_by_ICAR_during_2001-2012.csv",
       "title": "Number of field crops varieties released by ICAR during 2001-2012",
-      "index": 0
+      "index": 0,
+      "describe": {
+        "shape": [
+          69,
+          7
+        ],
+        "columns": [
+          "Crop group",
+          "Name of Crop",
+          "2001-2005",
+          "2006-2007",
+          "2008-2009",
+          "2010-11"
+        ],
+        "sample": [
+          {
+            "Crop group": "CEREAL CROPS",
+            "Name of Crop": "Wheat",
+            "2001-2005": 44.0,
+            "2006-2007": 26.0,
+            "2008-2009": 22.0,
+            "2010-11": 11.0,
+            "2011-12": 10.0
+          }
+        ],
+        "unique_values": {
+          "Crop group": [
+            "CEREAL CROPS",
+            "PULSE CROPS",
+            "OILSEED CROPS",
+            "SUGAR CROPS",
+            "FIBER CROPS"
+          ],
+          "Name of Crop": [
+            "Wheat",
+            "Barley",
+            "Paddy",
+            "Maize ",
+            "Sorghum"
+          ]
+        }
+      }
     },
     {
       "id": "https://data.gov.in/files/ogd20/ogdpv2dms/s3fs-public/datafile/Table_7.12_Quantity_and_value_of_export_and_import_of_lac_and_its_value_added_products.csv",
       "title": "Quantity and value of export and import of lac and its value added products",
-      "index": 1
+      "index": 1,
+      "describe": {
+        "shape": [
+          12,
+          12
+        ],
+        "columns": [
+          "Year",
+          "Grade",
+          "Export - Shellac & button lac",
+          "Export - Seedlac",
+          "Export - Dewaxed shellac",
+          "Export - Aleuritic Acid"
+        ],
+        "sample": [
+          {
+            "Year": "2006-07",
+            "Grade": "Quantity",
+            "Export - Shellac & button lac": 5350.91,
+            "Export - Seedlac": 1331.15,
+            "Export - Dewaxed shellac": 128.42,
+            "Export - Aleuritic Acid": 259.04,
+            "Export - Bleached lac": 147.55,
+            "Export - Gasket shellac": 28.8,
+            "Export - Shellac wax": 19.0,
+            "Export - Other": 260.59,
+            "Export - Total": 7525.46,
+            "Import - lac": 7365.64
+          }
+        ],
+        "unique_values": {
+          "Year": [
+            "2006-07",
+            "2007-08",
+            "2008-09",
+            "2009-10",
+            "2010-11"
+          ],
+          "Grade": [
+            "Quantity",
+            "Value"
+          ]
+        }
+      }
     },
     {
       "id": "https://data.gov.in/files/ogd20/ogdpv2dms/s3fs-public/datafile/Table_2.6_List_of_field_crops_varieties_hybrids_released_and_notified_during_2007-2011.csv",
       "title": "List of field crops varieties hybrids released and notified during 2008-2011",
-      "index": 2
+      "index": 2,
+      "describe": {
+        "shape": [
+          255,
+          7
+        ],
+        "columns": [
+          "Type of crops",
+          "Name of  Crop",
+          "2008",
+          "2009",
+          "2010",
+          "2011"
+        ],
+        "sample": [
+          {
+            "Type of crops": "CEREAL CROPS",
+            "Name of  Crop": "Wheat",
+            "2008": "Pusa Wheat-111 (HD-2932)",
+            "2009": "MACS 2971",
+            "2010": "MPO(JW)  1215 (MPO 1215)",
+            "2011": "DPW 621-50 (PBW 621 & DBW 50)",
+            "2012": "PBW 644"
+          }
+        ],
+        "unique_values": {
+          "Type of crops": [
+            "CEREAL CROPS",
+            "PULSE CROPS",
+            "OILSEED CROPS",
+            "SUGAR CROPS",
+            "FIBRE CROPS"
+          ],
+          "Name of  Crop": [
+            "Wheat",
+            "Barley",
+            "Paddy",
+            "Maize",
+            "Sorghum"
+          ],
+          "2008": [
+            "Pusa Wheat-111 (HD-2932)",
+            "VL Gehun 892",
+            "W H-1021",
+            "POSHAN (HI8663)",
+            "Purna (HI-1544)"
+          ],
+          "2009": [
+            "MACS 2971",
+            "Ratan(CG 5016)*",
+            "WH 1025*",
+            "UP 2628*",
+            "MP 3211 (JW 3211)*"
+          ],
+          "2010": [
+            "MPO(JW)  1215 (MPO 1215)",
+            "MACS 6222",
+            "PDW 314",
+            "DBW39",
+            "VL Gehun 907 (VL 907)"
+          ],
+          "2011": [
+            "DPW 621-50 (PBW 621 & DBW 50)",
+            "WH 1080",
+            "MP 3288 (JW 3288)",
+            "KRL-213",
+            "HD 2967"
+          ]
+        }
+      }
     },
     {
       "id": "https://data.gov.in/files/ogd20/ogdpv2dms/s3fs-public/datafile/Table_2.7.1_Field_crops_varieties_released_during_2012_%28Central_release%29.csv",
       "title": "Field crops varieties released during 2012 (Central release)",
-      "index": 3
+      "index": 3,
+      "describe": {
+        "shape": [
+          75,
+          6
+        ],
+        "columns": [
+          "Type of Crops",
+          "Crop",
+          "Variety",
+          "Sponsoring Authority",
+          "Season/ maturity duration in days",
+          "Recommended Zone"
+        ],
+        "sample": [
+          {
+            "Type of Crops": "Cereals",
+            "Crop": "\u00a0Paddy",
+            "Variety": "Punjab Basmati-2",
+            "Sponsoring Authority": "Punjab Agricultural University, Ludhiana",
+            "Season/ maturity duration in days": "Medium 140",
+            "Recommended Zone": "Punjab"
+          }
+        ],
+        "unique_values": {
+          "Type of Crops": [
+            "Cereals",
+            "Oil seed crops",
+            "Pulses",
+            "SUGAR CROPS",
+            "FIBRE CROPS"
+          ],
+          "Crop": [
+            "\u00a0Paddy",
+            "Rice (Hybrid) ",
+            "Wheat",
+            "Maize",
+            "Sorghum"
+          ],
+          "Variety": [
+            "Punjab Basmati-2",
+            "Mugad \u00a0Siri-1253",
+            "CR Dhan 500,  (IET 20220)",
+            "JGL 3844 (Jagtial Samba)",
+            "JGL 3828 (Manair Sona)"
+          ],
+          "Sponsoring Authority": [
+            "Punjab Agricultural University, Ludhiana",
+            "Agricultural Research Station, Mugad, UAS, Dharwad",
+            "Central Rice Research Institute, Cuttack",
+            "RARS, Jagtial, (AGRAU)",
+            "CRS, Ghaghraghat (NDUAT)"
+          ],
+          "Season/ maturity duration in days": [
+            "Medium 140",
+            "Medium  135 -140",
+            "Late  158-163",
+            "Medium Early 125-130",
+            "Medium 130-135"
+          ],
+          "Recommended Zone": [
+            "Punjab",
+            "Irrigated & rainfed midland areas of northern Karnataka ",
+            "Odisha and Uttar Pradesh under deep water condition",
+            "Andhra Pradesh",
+            "Semi-Deep water situations of Uttar Pradesh and Bihar"
+          ]
+        }
+      }
     },
     {
       "id": "https://data.gov.in/files/ogd20/ogdpv2dms/s3fs-public/datafile/F_Central_Release__Field_crop_Varieties__released_1.xls",
       "title": "Field Crop varieties released during 2010 (Central Release)",
-      "index": 4
+      "index": 4,
+      "describe": {
+        "shape": [
+          79,
+          4
+        ],
+        "columns": [
+          "Crop",
+          "Variety",
+          "Season/ duration in days",
+          "Recommended Zone"
+        ],
+        "sample": [
+          {
+            "Crop": "Paddy",
+            "Variety": "Chinsurah Rice (IET 19140)",
+            "Season/ duration in days": "Medium",
+            "Recommended Zone": "Andhra Pradesh, Tamil Nadu, Gujarat, Orissa, and West Bengal under irrigated conditions. "
+          }
+        ],
+        "unique_values": {
+          "Crop": [
+            "Paddy",
+            "Wheat",
+            "Barley",
+            "Maize",
+            "Pearl Millet"
+          ],
+          "Variety": [
+            "Chinsurah Rice (IET 19140)",
+            "(CNI 383-5-11)",
+            "IGKVR-1 (IET 19569)",
+            "IGKVR-2 (IET 19795)",
+            "CR Dhan 401 (REETA) "
+          ],
+          "Season/ duration in days": [
+            "Medium",
+            "Mid-early",
+            "145-150",
+            160,
+            152
+          ],
+          "Recommended Zone": [
+            "Andhra Pradesh, Tamil Nadu, Gujarat, Orissa, and West Bengal under irrigated conditions. ",
+            "Chhattisgarh, Madhya Pradesh and Orissa under  both irrigated and rainfed conditions.",
+            "Chhattisgarh, Bihar and Orissa under  both irrigated and rainfed conditions.",
+            "Orissa, West Bengal, Tamil Nadu and Andhra Pradesh under irrigated late sown conditions as well as shallow rainfed lowland.",
+            "Boro Area of Orissa, West Bengal and Assam."
+          ]
+        }
+      }
     },
     {
       "id": "https://data.gov.in/files/ogd20/ogdpv2dms/s3fs-public/datafile/Varieties__released_notified_Field_crop.xls",
       "title": "Varieties Released/notified during 2010 (State release)",
-      "index": 5
+      "index": 5,
+      "describe": {
+        "shape": [
+          78,
+          4
+        ],
+        "columns": [
+          "Field Crop Type",
+          "Crop",
+          "Variety",
+          "Recommended Zone"
+        ],
+        "sample": [
+          {
+            "Field Crop Type": "CEREAL CROPS",
+            "Crop": "Paddy",
+            "Variety": "VTL-8",
+            "Recommended Zone": "Kerala/2010"
+          }
+        ],
+        "unique_values": {
+          "Field Crop Type": [
+            "CEREAL CROPS",
+            "OIL SEEDS",
+            "PULSE CROPS",
+            "SUGAR CROP",
+            "FORAGE CROPS"
+          ],
+          "Crop": [
+            "Paddy",
+            "Wheat",
+            "Maize",
+            "Pearl Millet",
+            "Barley"
+          ],
+          "Variety": [
+            "VTL-8",
+            "MO 21(Pratheeksha)",
+            "ANNA(R) 4",
+            "CO(R) 49",
+            "GAR \u2013 13(IET-20930)"
+          ],
+          "Recommended Zone": [
+            "Kerala/2010",
+            "Tamil Nadu/2009",
+            "Tamil Nadu/ 2008",
+            "Gujarat/2009",
+            "Maharashtra/2009"
+          ]
+        }
+      }
     },
     {
       "id": "https://data.gov.in/files/ogd20/ogdpv2dms/s3fs-public/datafile/Table_2.4_%28b%29_Number_of_horticultural_crops_varieties_released_during_2011-2012.csv",
       "title": "Number of horticultural crops varieties released during 2011-2012",
-      "index": 6
+      "index": 6,
+      "describe": {
+        "shape": [
+          50,
+          7
+        ],
+        "columns": [
+          "Crops groups",
+          "Crop",
+          "Selections",
+          "Hybrids",
+          "Mutants",
+          "Other"
+        ],
+        "sample": [
+          {
+            "Crops groups": "Vegetable Crops",
+            "Crop": "Potato",
+            "Selections": NaN,
+            "Hybrids": 1.0,
+            "Mutants": NaN,
+            "Other": 2.0,
+            "Total": 3
+          }
+        ],
+        "unique_values": {
+          "Crops groups": [
+            "Vegetable Crops",
+            "Ornamental Crops",
+            "Plantaition and Spice Crops",
+            "Fruit Crops",
+            "Medicinal and Aromatic Plants"
+          ],
+          "Crop": [
+            "Potato",
+            "Chillies",
+            "Bottle gourd",
+            "Sponge gourd",
+            "Snap melon"
+          ]
+        }
+      }
     },
     {
       "id": "https://data.gov.in/files/ogd20/ogdpv2dms/s3fs-public/datafile/Table_2.4_%28c%29_Number_of_horticultural_crops_varieties_released_during_2012-2013.csv",
       "title": "Number of horticultural crops varieties released during 2012-2013",
-      "index": 7
+      "index": 7,
+      "describe": {
+        "shape": [
+          16,
+          4
+        ],
+        "columns": [
+          "Horticulture crops",
+          "Varieties",
+          "Number",
+          "Varieties released during 2012-13"
+        ],
+        "sample": [
+          {
+            "Horticulture crops": "Temperate Fruits and Vegetables",
+            "Varieties": "Apple",
+            "Number": 1,
+            "Varieties released during 2012-13": "CITH-Lodh-Apple-1"
+          }
+        ],
+        "unique_values": {
+          "Horticulture crops": [
+            "Temperate Fruits and Vegetables",
+            "Plantation crops",
+            "Vegetables",
+            "Medicinal",
+            "Ornamental"
+          ],
+          "Varieties": [
+            "Apple",
+            "Walnut",
+            "Cherry",
+            "Garlic",
+            "Coconut-"
+          ],
+          "Varieties released during 2012-13": [
+            "CITH-Lodh-Apple-1",
+            "CITH-Walnut -6, CITH-Walnut -7, CITH-Walnut -8, CITH-Walnut -9, CITH-Walnut-10",
+            "CITH-Cherry-1, CITH-Cherry-2",
+            "CITH-Garlic ( M)-1",
+            "Kalpa Jyothi, Kalpa Surya and Kalpa Haritha"
+          ]
+        }
+      }
     },
     {
       "id": "https://data.gov.in/files/ogd20/ogdpv2dms/s3fs-public/datafile/Table_2.4_%28a%29__Number_of_horticultural_crops_varieties_released_during_1951_-_2009.csv",
       "title": "Number of horticultural crops varieties released during 1951-2009",
-      "index": 8
+      "index": 8,
+      "describe": {
+        "shape": [
+          128,
+          7
+        ],
+        "columns": [
+          "Crop groups",
+          "Crops",
+          "Selections",
+          "Hybrids",
+          "Mutants",
+          "Others"
+        ],
+        "sample": [
+          {
+            "Crop groups": "Vegetable Crops",
+            "Crops": "Potato",
+            "Selections": 2.0,
+            "Hybrids": 48.0,
+            "Mutants": NaN,
+            "Others": NaN,
+            "Total": 50
+          }
+        ],
+        "unique_values": {
+          "Crop groups": [
+            "Vegetable Crops",
+            "Ornamental Crops",
+            "Plantation and Spice Crops",
+            "Fruit Crops",
+            "Medicinal and Aromatic Plants"
+          ],
+          "Crops": [
+            "Potato",
+            "Cassava",
+            "Sweet potato",
+            "Greater yam",
+            "White yam"
+          ]
+        }
+      }
     },
     {
       "id": "https://data.gov.in/files/ogdpv2dms/s3fs-public/datafile/Table_2.8_List_of_certified_varieties_of_horticultural_crops.csv",
       "title": "List of certified varieties of horticultural crops",
-      "index": 9
+      "index": 9,
+      "describe": {
+        "shape": [
+          13,
+          9
+        ],
+        "columns": [
+          "Name of crop",
+          "2002",
+          "2003",
+          "2004",
+          "2005",
+          "2006"
+        ],
+        "sample": [
+          {
+            "Name of crop": "Potato ",
+            "2002": NaN,
+            "2003": NaN,
+            "2004": NaN,
+            "2005": "Kufari Surya Kufri Chipsona-3 Kufri Himalini Kufri Arun Kufri Pushkar Kufri Shailja ",
+            "2006": NaN,
+            "2007": NaN,
+            "2008": "Kufri Himsona Kufri Sadabahar Kufri Girdhari Kufri Khyati",
+            "2009": "Kufri Frysona  "
+          }
+        ],
+        "unique_values": {
+          "Name of crop": [
+            "Potato ",
+            "Vegetable crops ",
+            "Cashew-nut",
+            "Coconut (palms)",
+            "Turmeric/ spice crops "
+          ],
+          "2002": [
+            "Coconut , Arasam-patti Tall/ Aliyar nagar-1",
+            "Ginger , IISR Rejatha ,IISR Mahima , Nutmeg IISR Viswashree ",
+            "Mango -Pusa Arunima , Pusa Surya ",
+            "Ghanagatte , DPB-6",
+            "Catharanthus , Roaseus , Periwinkle Prabhat"
+          ],
+          "2003": [
+            "Watermelon Durgapura Lal  (RW 177-3) Amaranthus Konkan Durangi Ash Gourd Pusa Ujwal (DAG-1)"
+          ],
+          "2004": [
+            " Pumpkin-Sooraj  (CM-350), Brinjal-Gujrat Brinjal Long-1, Brinjal-Brinjal Hybrid-2, Brinjal-(GBH-2), Brinjal-Utkal Jyoti (BB-13), Brinjal-Swarna Pratibha, Brinjal-(CH-309), Brinjal-Swarna Mani (CHTH-1), Mushmelon-RM-50, MHY-5, Snap Melon-Pusa Shandar (DSM-1), Spong Gourd-Pusa Sneha, Cauliflower-Pusa Sharad, Cauliflower-(sel-303-1-2), Cauliflower-Pusa Meghna (DC/98-2), Cauliflower-Pusa Snowball , Cauliflower-K-25 (Kt-25), Vegetable Muskard-Pusa Saag-1 (MR-704), Chilli-Utkal Ava (BC-14-2), Chilli-RCh-1, Cucumber-Swarna Poona (CH-20), Garlic-VL Garlic -1 (VLG-7), Onion-RO-1, Onion-(Rajasthan Onion-1), Tomato-Swaprna Baibhay, Tomato-(CHTH-1), Tomato-Sankranthi (TLB-11), Tomato-Nandi (TLB-130), Tomato-Vybhat (TLB-182)",
+            "Turmeric-IISR Kedaram IISR , Turmeric-Alleppey Supreme ,  , Ajowan-Ajmer Ajowan-1 , Ajowan-(AA-1) , Ajowan-Ajmer Ajowan-2 , Ajowan-(AA-2) ,  , Dill-Ajmer Dill-1 (AD-1) , Dill-Ajmer Dill-2(AD-2) ,  , Nigella-Ajmer Nigella-1(AN-1) ,  , Fennel-Hisar Swarup , Fennel-Gujrat fennel-11 ,  , Fenugreek-RMt. 305 ,  , Coriander-Hisar Surabhi ,  , Cumin-RZ-223 ,  , Black pepper-IISR Thevam , Black pepper-IISR Girimunda , Black pepper-P-24 , Black pepper-IISR Malabar Excel ",
+            "Jawahar-Safed musli"
+          ],
+          "2005": [
+            "Kufari Surya Kufri Chipsona-3 Kufri Himalini Kufri Arun Kufri Pushkar Kufri Shailja ",
+            "Brinjal-Kashi Prakash, Brinjal-(IVBT-1), Brinjal-Swarna Shobha, Brinjal-(HABR-4), Cauliflower-Kashi Kuwari, Cauliflower-(IVCE-2), Chilli-Arka Suphal (PMR 57/88 K), Chilli-Gujarat Veg., Chilli-Chilli-101, Chilli-(Anand Jyot 101), Chilli-Kashi Anmol(KA-2), Chilli-Prasanth, Chilli-(LCA- 334), Cowpea-Kashi Shyamal, Cowpea-(IVRCP-1), Garlic -Jamuna Safed-4, Garlic -(G-323), Okra-Kashi Pragati, Okra-(VRO-6), Okra-Kashi Vibhuti, Okra-(VRO-5), Okra Hybrid-HBH-142, Okra Hybrid-Kashi Bhairo (DVR-3) , Pea-Kashi Nandini, Pea-(VRP-5), Pea-Narendra Subzi Matar-6, Pumpkin-NDPK-24, Sponge gourd-Gujarat Sponge Gourd-1, Sponge gourd-(JSGL-55), Sponge gourd-Swarna Prabha, Sponge gourd-(CHSG-1), Tomato-Kashi Hemant (IIVR Sel-1), Tomato-Kashi Sharad, Tomato-(IIVR Sel-2), Tomato-Kashi Vishesh (H-86), Tomato Hyb.-Arka Ananya (TLBRH-9)",
+            "Bhaskar",
+            "Coriander-NRCSS ACr 1 ,  , Fennel-NRCSS AF 1 ,  , Fenugreek-NRCSS AM 1 , Fenugreek-NRCSS AM 2 ,  , Ginger-IISR Nahima , Ginger-IISR Rajitha ,  , Nutmeg-IISR Viswashree  ,  , Ajowan-NRCSS AA-1 , Ajowan-NRCSS AA-2 ,  , Nigella-NRCSS AN-1 ,  , Dill-NRCSS AD -1 , Dill-NRCSS AD- 2 ",
+            "Banana-Udhayam,Guava-Shweta"
+          ],
+          "2006": [
+            "Small Cardamom-ICRI-5 (MHC-26) , Small Cardamom-ICRI-6 (MCC-73) ,  , CorianderRCr-480 , Coriander(UD-480) , Coriander-Hisar Surabhi , Coriander-(DH-246) , Coriander-Sudha (LCC-128) ,  , Cumin-RZ-341 (UC-341) , Cumin-Gujarat Cumin-4 , Cumin-(JC-2000-72) ,  , Fennel-RF-178 (UfF-178) ,  , Fenugreek-RMt-351 , Fenugreek(UM-351) , Fenugreek-Gujarat Methi-2 , Fenugreek-(J.Fenu-244) ,  , Black pepper-IISR Thevam , Black pepper-IISR Girimunda , Black pepper-IISR Malabar , Black pepper-Excel , Black pepper-IISR Shakthi ,  , Turmeric-IISR, Kedaram , Turmeric-IISR Alleppey Supreme  ,  , Anise-NRCSS Aani-1 , Celery-NRCSS Acel-1",
+            "Citrus-Acid-Lime-Khagzi lime,Citrus-Acid-Lime-Clone-PDKV,Citrus-Acid-Lime-Balaji,Clonal s\u00e9lection A- Grapes-17/3,Ber-Thar sevika,Anola-Goma Aishwarya",
+            "Aloe vera-INGR No. 06023 , Aloe vera-INGR No. 06024 , Gilo (Tinospora Aloe vera-cordifolia) , Aloe vera-INGR No. 06025 , Aloe vera-Isabgol GI-3",
+            "Sweet Potato-ISGP-4 , Sweet Potato-IGSP-17 , Sweet Potato-RNSP-3 ,  , Elephant foot yam-NDA-9 ,  , Aroids-Sree Athira ,  , Arvi-PKS-1 , Arvi-RNCA-1 , Arvi-BKCOL-2 , Arvi-Sonajuli and Jhankri , Arvi-Sonajuli and Jhankri",
+            "Cassava-Sree Prakash , Cassava-Sree Vijaya ,  , Bunda -NDB-3 , Bunda -NDB-21 "
+          ]
+        }
+      }
     },
     {
       "id": "https://data.gov.in/files/ogd20/ogdpv2dms/s3fs-public/datafile/Table_6.16_Sector-wise_distribution_of_cold_storages_in_India_%28as_on_31.12.2009%29.csv",
       "title": "Sector-wise distribution of cold storages in India (as on 31.12.2009)",
-      "index": 10
+      "index": 10,
+      "describe": {
+        "shape": [
+          34,
+          9
+        ],
+        "columns": [
+          "States / UTs",
+          "Private sector (No.)",
+          "Private sector Capacity (tonnes)",
+          "Cooperative sector (No.)",
+          "Cooperative sector Capacity (tonnes)",
+          "Public sector (No.)"
+        ],
+        "sample": [
+          {
+            "States / UTs": "Andaman & Nicobar Islands ",
+            "Private sector (No.)": 1,
+            "Private sector Capacity (tonnes)": 170,
+            "Cooperative sector (No.)": 0,
+            "Cooperative sector Capacity (tonnes)": 0,
+            "Public sector (No.)": 1,
+            "Public sector Capacity (tonnes)": 40,
+            "Total number": 2,
+            "Total capacity (tonnes)": 210
+          }
+        ],
+        "unique_values": {
+          "States / UTs": [
+            "Andaman & Nicobar Islands ",
+            "Andhra Pradesh",
+            "Arunachal Pradesh",
+            "Assam",
+            "Bihar"
+          ]
+        }
+      }
     },
     {
       "id": "https://data.gov.in/files/ogd20/ogdpv2dms/s3fs-public/datafile/Table_5.14_State-wise_production_of_lac_in_India.csv",
       "title": "State-wise production of lac in India",
-      "index": 11
+      "index": 11,
+      "describe": {
+        "shape": [
+          13,
+          6
+        ],
+        "columns": [
+          "States",
+          "2007-08",
+          "2008-09",
+          "2009-10",
+          "2010-11",
+          "2011-12"
+        ],
+        "sample": [
+          {
+            "States": "Andhra Pradesh",
+            "2007-08": 30,
+            "2008-09": 42,
+            "2009-10": 35.0,
+            "2010-11": 20.0,
+            "2011-12": 120.0
+          }
+        ],
+        "unique_values": {
+          "States": [
+            "Andhra Pradesh",
+            "Assam",
+            "Bihar",
+            "Chhattisgarh",
+            "Gujarat"
+          ]
+        }
+      }
     },
     {
       "id": "https://data.gov.in/files/ogd20/ogdpv2dms/s3fs-public/datafile/Table_6.2_Status_of_farm_machinery_industries_in_India.csv",
       "title": "Status of farm machinery industries in India",
-      "index": 12
+      "index": 12,
+      "describe": {
+        "shape": [
+          19,
+          2
+        ],
+        "columns": [
+          "Equipment manufacturers",
+          "Number"
+        ],
+        "sample": [
+          {
+            "Equipment manufacturers": "Agricultural tractors",
+            "Number": "13"
+          }
+        ],
+        "unique_values": {
+          "Equipment manufacturers": [
+            "Agricultural tractors",
+            "Power tillers",
+            "Earth movers",
+            "Pumps",
+            "Micro-irrigation system"
+          ],
+          "Number": [
+            "13",
+            "2",
+            "3",
+            "600",
+            "70"
+          ]
+        }
+      }
     },
     {
       "id": "https://data.gov.in/files/ogd20/ogdpv2dms/s3fs-public/datafile/Table_9.7_Summary_of_B.E._2009-10_vis-a-vis_releases_up_to_December%2C_2009_PLAN.csv",
       "title": "Summary of B.E. 2009-10 vis-a-vis releases up to December, 2009 (PLAN)",
-      "index": 13
+      "index": 13,
+      "describe": {
+        "shape": [
+          14,
+          3
+        ],
+        "columns": [
+          "PLAN-Subject Matter Division",
+          "PLAN-B.E. 2009-10",
+          "PLAN-Releases"
+        ],
+        "sample": [
+          {
+            "PLAN-Subject Matter Division": "Crop Science",
+            "PLAN-B.E. 2009-10": 3007.8,
+            "PLAN-Releases": 2232.46
+          }
+        ],
+        "unique_values": {
+          "PLAN-Subject Matter Division": [
+            "Crop Science",
+            "Horticulture Science",
+            "Natural Resource Management ",
+            "Agricultural Engineering",
+            "Animal Science"
+          ]
+        }
+      }
     },
     {
       "id": "https://data.gov.in/files/ogd20/ogdpv2dms/s3fs-public/datafile/Table_6.10_Trend_in_growth_of_number_of_pump_sets_energized_in_India.csv",
       "title": "Trend in growth of number of pump sets energized in India",
-      "index": 14
+      "index": 14,
+      "describe": {
+        "shape": [
+          11,
+          3
+        ],
+        "columns": [
+          "Year",
+          "Pump sets energized",
+          "Cumulative pump sets energized"
+        ],
+        "sample": [
+          {
+            "Year": "1995-96",
+            "Pump sets energized": NaN,
+            "Cumulative pump sets energized": 11104090
+          }
+        ],
+        "unique_values": {
+          "Year": [
+            "1995-96",
+            "2000-01",
+            "2001-02*",
+            "2002-03",
+            "2003-04"
+          ]
+        }
+      }
     },
     {
       "id": "https://data.gov.in/files/ogd20/ogdpv2dms/s3fs-public/datafile/Table_2.7.2_Varieties_released_notified_during_2012_%28State_release%29.csv",
       "title": "Varieties released notified during 2012 (State release)",
-      "index": 15
+      "index": 15,
+      "describe": {
+        "shape": [
+          57,
+          4
+        ],
+        "columns": [
+          "Type of crop",
+          "Crop",
+          "Variety",
+          "Recommended Zone"
+        ],
+        "sample": [
+          {
+            "Type of crop": "Cereal crops ",
+            "Crop": "Rice",
+            "Variety": "TRY 3",
+            "Recommended Zone": "Tamil Nadu/ 2010"
+          }
+        ],
+        "unique_values": {
+          "Type of crop": [
+            "Cereal crops ",
+            "Oil Seeds crops",
+            "PULSE CROPS",
+            "FIBRE CROPS",
+            "FORAGE CROPS"
+          ],
+          "Crop": [
+            "Rice",
+            "Wheat",
+            "Barley",
+            "Maize",
+            "Sorghum"
+          ],
+          "Variety": [
+            "TRY 3",
+            "ADT 49",
+            "ADT 50",
+            "CO 4 (Hybrid)",
+            "Gujarat Anand Rice-2 (IET-21614)"
+          ],
+          "Recommended Zone": [
+            "Tamil Nadu/ 2010",
+            "Tamil Nadu/ 2011",
+            "Tamil Nadu/ 2012",
+            "Gujarat/2011",
+            "Gujarat/2010"
+          ]
+        }
+      }
     },
     {
       "id": "https://data.gov.in/files/ogd20/ogdpv2dms/s3fs-public/datafile/Table_2.5_Number_of_horticultural_crops_varieties_released_during_1951-2009_%28based_on_decade_release%29.csv",
       "title": "Number of horticultural crops varieties released during 1951-2009 (based on decade release)",
-      "index": 16
+      "index": 16,
+      "describe": {
+        "shape": [
+          128,
+          11
+        ],
+        "columns": [
+          "Type of Crops",
+          "Crops",
+          "Unnamed: 2",
+          "1951-60",
+          "1961-70",
+          "1971-80"
+        ],
+        "sample": [
+          {
+            "Type of Crops": "Vegetables Crops",
+            "Crops": "Potato",
+            "Unnamed: 2": NaN,
+            "1951-60": 6.0,
+            "1961-70": 11.0,
+            "1971-80": 5.0,
+            "1981-90": 4.0,
+            "1991-00": 9.0,
+            "2001-09": 15.0,
+            "unknown": NaN,
+            "Total": 50
+          }
+        ],
+        "unique_values": {
+          "Type of Crops": [
+            "Vegetables Crops",
+            "Ornamental Crops",
+            "Plantation and Spice Crops ",
+            "Fruit Crops ",
+            "Medicinal and Aromatic plants "
+          ],
+          "Crops": [
+            "Potato",
+            "Cassava ",
+            "Sweet potato",
+            "Greater yam ",
+            "White yam"
+          ]
+        }
+      }
     },
     {
       "id": "https://data.gov.in/files/ogd20/ogdpv2dms/s3fs-public/datafile/Table_6.12_Nutrient_content_and_nutritional_water_productivity_of_selected_food_comodities.csv",
       "title": "Nutrient content and nutritional water productivity of selected food commodities",
-      "index": 17
+      "index": 17,
+      "describe": {
+        "shape": [
+          17,
+          7
+        ],
+        "columns": [
+          "Food commodity",
+          "Water input per kg product",
+          "Productivity kg/m2",
+          "Nutritional water productivity Energy kcal/m3",
+          "Nutritional water productivity Protein g/m3",
+          "Nutritional water productivity Fat  g/m3"
+        ],
+        "sample": [
+          {
+            "Food commodity": "Wheat",
+            "Water input per kg product": 1159,
+            "Productivity kg/m2": 0.863,
+            "Nutritional water productivity Energy kcal/m3": 2279,
+            "Nutritional water productivity Protein g/m3": 74,
+            "Nutritional water productivity Fat  g/m3": 9,
+            "Nutritional water productivity Calcium mg/m3": 279
+          }
+        ],
+        "unique_values": {
+          "Food commodity": [
+            "Wheat",
+            "Rice",
+            "Maize",
+            "Potato",
+            "Pulses (Beans)"
+          ]
+        }
+      }
     },
     {
       "id": "https://data.gov.in/files/ogd20/ogdpv2dms/s3fs-public/datafile/Table_2.9__Horticultural_crops_varieties_released_and_notified_%28Centre_release%29_during_2005-2009.csv",
       "title": "Horticultural crops varieties released and notified (Central release) during 2005-2009",
-      "index": 18
+      "index": 18,
+      "describe": {
+        "shape": [
+          131,
+          5
+        ],
+        "columns": [
+          "Type of Crops",
+          "Crops",
+          "Variety name",
+          "Year",
+          "Remarks/ development by"
+        ],
+        "sample": [
+          {
+            "Type of Crops": "Fruit Crops ",
+            "Crops": "Banana",
+            "Variety name": "Udhayam",
+            "Year": 2005,
+            "Remarks/ development by": "Released by NRC for banana, Trichy"
+          }
+        ],
+        "unique_values": {
+          "Type of Crops": [
+            "Fruit Crops ",
+            "Vegetable crops",
+            "Potato varieties",
+            "Tuber crops ",
+            "Floricultural crops"
+          ],
+          "Crops": [
+            "Banana",
+            "Guava",
+            "Citrus- Acid- Lime",
+            "Grape",
+            "Ber"
+          ],
+          "Variety name": [
+            "Udhayam",
+            "Shweta",
+            "Khagzi lime clone-PDKV",
+            "Balaji",
+            "Clonal Selection A- 17/3"
+          ],
+          "Remarks/ development by": [
+            "Released by NRC for banana, Trichy",
+            "Released by CISH, Lucknow",
+            "Released under AICRP on Tropical Fruits",
+            "Released by NRC for Grapes, Pune",
+            "Released by CIAH, Bikaner"
+          ]
+        }
+      }
     },
     {
       "id": "https://data.gov.in/files/ogd20/ogdpv2dms/s3fs-public/datafile/Table_2.2_Indent_and_production_of_breeder_seeds_of_different_crops_during_2006-07_to_2011-12.csv",
       "title": "Indent and production of breeder seeds of different crops during 2006-07 to 2011-12",
-      "index": 19
+      "index": 19,
+      "describe": {
+        "shape": [
+          13,
+          13
+        ],
+        "columns": [
+          "CROPS",
+          "Indent 2006-07",
+          "Production 2006-07",
+          "Indent 2007-08",
+          "Production 2007-08",
+          "Indent 2008-09"
+        ],
+        "sample": [
+          {
+            "CROPS": "Wheat",
+            "Indent 2006-07": 13452,
+            "Production 2006-07": 14863,
+            "Indent 2007-08": 21461,
+            "Production 2007-08": 26204,
+            "Indent 2008-09": 23349,
+            "Production 2008-09": 28983,
+            "Indent 2009-10": 32330,
+            "Production 2009-10": 35049,
+            "Indent 2010-11": 29692,
+            "Production 2010-11": 38469,
+            "Indent 2011-12": 28860,
+            "Production 2011-12": 35745
+          }
+        ],
+        "unique_values": {
+          "CROPS": [
+            "Wheat",
+            "Paddy",
+            "Sorghum",
+            "Maize",
+            "Barley"
+          ]
+        }
+      }
     },
     {
       "id": "https://data.gov.in/files/ogd20/ogdpv2dms/s3fs-public/datafile/Table_9.9_Details_of_financial_outlay_Department_of_Agricultural_Research_and_Education.csv",
       "title": "Details of financial outlay Department of Agricultural Research and Education",
-      "index": 20
+      "index": 20,
+      "describe": {
+        "shape": [
+          42,
+          11
+        ],
+        "columns": [
+          "Particulars",
+          "Major Head",
+          "2010-2011 Budget Plan",
+          "2010-2011 Budget Non-Plan",
+          "2010-2011 Budget Total",
+          "2010-2011 Revised Plan"
+        ],
+        "sample": [
+          {
+            "Particulars": "The Gross provision for demand No.2- DARE, excluding recoveries - Revenue",
+            "Major Head": NaN,
+            "2010-2011 Budget Plan": 2307.5,
+            "2010-2011 Budget Non-Plan": 1518.05,
+            "2010-2011 Budget Total": 3825.55,
+            "2010-2011 Revised Plan": 2307.5,
+            "2010-2011 Revised Non-Plan": 2865.0,
+            "2010-2011 Revised Total": 5172.5,
+            "2011-2012 Budget Plan": 2808.54,
+            "2011-2012 Budget Non-Plan": 2157.6,
+            "2011-2012 Budget Total": 4966.14
+          }
+        ],
+        "unique_values": {
+          "Particulars": [
+            "The Gross provision for demand No.2- DARE, excluding recoveries - Revenue",
+            "The Gross provision for demand No.2- DARE, excluding recoveries - Capital",
+            "The Gross provision for demand No.2- DARE, excluding recoveries - Total",
+            "Recoveries -  Less Amount met from social and infrastructure development fund",
+            "Recoveries - Total"
+          ]
+        }
+      }
     },
     {
       "id": "https://data.gov.in/files/ogd20/ogdpv2dms/s3fs-public/datafile/Table_6.11_Comparison_of_water_use_in_traditional_and_drip_irrigation.csv",
       "title": "Comparison of water use in traditional and drip irrigation",
-      "index": 21
+      "index": 21,
+      "describe": {
+        "shape": [
+          8,
+          7
+        ],
+        "columns": [
+          "Crop",
+          "Traditional method - Water",
+          "Traditional method - Yield",
+          "Drip Irrigation method - Water",
+          "Drip Irrigation method - Yield",
+          "% Saving in water"
+        ],
+        "sample": [
+          {
+            "Crop": "Banana",
+            "Traditional method - Water": 1760,
+            "Traditional method - Yield": 57.5,
+            "Drip Irrigation method - Water": 970,
+            "Drip Irrigation method - Yield": 87.5,
+            "% Saving in water": 45,
+            "% Increase in yield": 52
+          }
+        ],
+        "unique_values": {
+          "Crop": [
+            "Banana",
+            "Grapes",
+            "Citrus",
+            "Tomato",
+            "Brinjal"
+          ]
+        }
+      }
     },
     {
       "id": "https://data.gov.in/files/ogd20/ogdpv2dms/s3fs-public/datafile/Horticultural_Crops_Varieties_Central_Released_2005-09.xls",
       "title": "Horticultural Crops Varieties Central Release (2005-09)",
-      "index": 22
+      "index": 22,
+      "describe": {
+        "shape": [
+          131,
+          5
+        ],
+        "columns": [
+          "Crops ",
+          "Variety Name",
+          "Year ",
+          "Remarks/ Development By ",
+          "State"
+        ],
+        "sample": [
+          {
+            "Crops ": "Banana",
+            "Variety Name": "Udhayam",
+            "Year ": 2005,
+            "Remarks/ Development By ": "Released by NRC for banana",
+            "State": "Trichy"
+          }
+        ],
+        "unique_values": {
+          "Crops ": [
+            "Banana",
+            "Guava",
+            "Citrus- Acid- Lime",
+            "Grape",
+            "Ber"
+          ],
+          "Variety Name": [
+            "Udhayam",
+            "Shweta",
+            "Khagzi lime clone-PDKV",
+            "Balaji",
+            "Clonal Selection A- 17/3"
+          ],
+          "Remarks/ Development By ": [
+            "Released by NRC for banana",
+            "Released by CISH",
+            "Released under AICRP on Tropical Fruits",
+            "Released by NRC for Grapes",
+            "Released by CIAH"
+          ],
+          "State": [
+            "Trichy",
+            "Lucknow",
+            "Pune",
+            "Bikaner",
+            "Solan"
+          ]
+        }
+      }
     },
     {
       "id": "https://data.gov.in/files/ogd20/ogdpv2dms/s3fs-public/datafile/Horticultural_Crops_Varieties_Certified_List_2002-09.xls",
       "title": "Horticulture Crops Varieties",
-      "index": 23
+      "index": 23,
+      "describe": {
+        "shape": [
+          168,
+          9
+        ],
+        "columns": [
+          "Name of Crop",
+          2002,
+          2003,
+          2004,
+          2005,
+          2006
+        ],
+        "sample": [
+          {
+            "Name of Crop": "Potato",
+            "2002": NaN,
+            "2003": NaN,
+            "2004": NaN,
+            "2005": "Kufari Surya",
+            "2006": NaN,
+            "2007": NaN,
+            "2008": "Kufri Himsona",
+            "2009": "Kufri Frysona"
+          }
+        ],
+        "unique_values": {
+          "Name of Crop": [
+            "Potato",
+            "Watermelon",
+            "Amaranthus",
+            "Ash Gourd",
+            "Pumpkin"
+          ],
+          "2002": [
+            "Coconut",
+            "Arasam-patti Tall/ Aliyar nagar-1",
+            "IISR Rejatha",
+            "IISR Mahima",
+            "IISR Viswashree"
+          ],
+          "2003": [
+            "Durgapura Lal (RW 177-3)",
+            "Konkan",
+            "Durangi",
+            "Pusa Ujwal (DAG-1)"
+          ],
+          "2004": [
+            "Sooraj (CM-350)",
+            "Gujrat Brinjal Long-1",
+            "Brinjal Hybrid-2 (GBH-2)",
+            "Utkal Jyoti (BB-13)",
+            "Swarna Pratibha (CH-309)"
+          ],
+          "2005": [
+            "Kufari Surya",
+            "Kufri Pushkar",
+            "Kufri Shailja",
+            "Kufri Chipsona-3",
+            "Kufri Himalini"
+          ],
+          "2006": [
+            "IISR, Kedaram",
+            "IISR Alleppey Supreme",
+            "RF-178 (UfF-178)",
+            "RMt-351",
+            "(UM-351)"
+          ]
+        }
+      }
     }
   ]
 }

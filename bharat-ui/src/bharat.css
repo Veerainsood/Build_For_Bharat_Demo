@@ -1,0 +1,239 @@
+/* layout */
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  color-scheme: light dark;
+  padding: 0;
+  display: block;
+  background: none;
+  font-family: "Inter", sans-serif;
+  color: white;
+}
+
+/* main container */
+.bharat-root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* animated background */
+.bg-animated {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(circle at 50% 60%, #0a0a0f 0%, #11131a 40%, #000000 100%);
+  background-image:
+    radial-gradient(at 30% 40%, rgba(0,150,255,0.25) 0, transparent 60%),
+    radial-gradient(at 70% 70%, rgba(255,120,0,0.25) 0, transparent 60%),
+    radial-gradient(at 50% 90%, rgba(255,0,150,0.15) 0, transparent 70%);
+  background-blend-mode: screen;
+  background-size: 200% 200%;
+  animation: obsidianShift 25s ease-in-out infinite;
+}
+@keyframes obsidianShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* header */
+.header {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 0;
+  background: linear-gradient(90deg, #ffe066, #5fb4ff, #34ebba);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.subtitle {
+  color: #ccc;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* main query section */
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin-bottom: 2.5rem;
+  width: 100%;
+}
+
+@property --glow-angle {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 0deg;
+}
+
+.query-box {
+  --glow-angle: 0deg;
+  --ring-color-1: rgba(255, 230, 120, 0.9);
+  --ring-color-2: rgb(252 212 124 / 70%);
+  --ring-color-3: rgb(252 252 248 / 55%);
+
+  position: relative;
+  width: 90%;
+  max-width: 540px;
+  padding: 1.5rem;
+  border-radius: 20px;
+  background: rgba(12, 16, 35, 0.85);
+  color: #fff;
+  text-align: center;
+  backdrop-filter: blur(14px) saturate(130%);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 180, 0.15);
+  box-shadow:
+    0 0 25px rgba(255, 230, 120, 0.1),
+    inset 0 0 25px rgba(255, 255, 180, 0.05);
+}
+
+/* glowing rotating gold ring */
+.query-box::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  border-radius: inherit;
+  background: conic-gradient(
+    from var(--glow-angle),
+    var(--ring-color-1) 0deg,
+    var(--ring-color-2) 60deg,
+    transparent 120deg,
+    var(--ring-color-3) 240deg,
+    transparent 360deg
+  );
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: xor;
+  pointer-events: none;
+  animation: rotateRing 8s linear infinite;
+}
+
+/* faint stable inner border */
+.query-box::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 1px solid rgba(255, 255, 180, 0.15);
+  pointer-events: none;
+}
+
+@keyframes rotateRing {
+  to { --glow-angle: 360deg; }
+}
+
+/* optional glowing text style */
+.query-title {
+  color: #fff8b5;
+  font-weight: 600;
+  text-shadow: 0 0 10px rgba(255, 230, 100, 0.4);
+  margin-bottom: 0.5rem;
+}
+
+.query-sub {
+  color: #b5d9ff;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+
+
+
+
+
+/* response */
+.response-box {
+  background: rgba(10, 15, 40, 0.5);
+  border: 1px solid rgba(255, 255, 150, 0.25);
+  border-radius: 10px;
+  padding: 0.75rem;
+  text-align: left;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  color: #cde4ff;
+}
+
+/* input area */
+.input-row {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.input {
+  flex-grow: 1;
+  padding: 0.75rem 1rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 150, 0.3);
+  background: rgba(15, 25, 60, 0.6);
+  color: #fff8d6;
+}
+
+.input::placeholder {
+  color: rgba(255, 255, 150, 0.4);
+}
+
+.button {
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 150, 0.4);
+  background: linear-gradient(90deg, #184bff, #253b8a);
+  color: #fff9c4;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.button:hover {
+  background: linear-gradient(90deg, #296aff, #3e56a5);
+}
+
+/* spinner */
+.spinner {
+  width: 24px;
+  height: 24px;
+  border: 3px solid rgba(255, 255, 200, 0.5);
+  border-top: 3px solid transparent;
+  border-radius: 50%;
+  margin: auto;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

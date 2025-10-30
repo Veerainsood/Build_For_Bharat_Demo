@@ -3,7 +3,7 @@ import re
 import numpy as np
 from sentence_transformers import SentenceTransformer
 from .local_llm import LocalLLM
-
+import os
 
 class FileSearchTool:
     """
@@ -17,6 +17,7 @@ class FileSearchTool:
     def __init__(self, family_index: dict, model="mistral-nemo:12b", cache_dir="intelligence/embedding_cache/"):
         # unwrap: {"Temperature and Rainfall": [ {...}, {...} ]}
         # breakpoint()
+        os.makedirs(cache_dir, mode=0o777, exist_ok=True)
         if isinstance(family_index, dict):
             self.family_name, entries = next(iter(family_index.items()))
         else:
@@ -24,7 +25,22 @@ class FileSearchTool:
 
         self.family_index = entries  # list[{id,title,index}]
         self.llm = LocalLLM(model=model)
-        self.sentence_model = SentenceTransformer("./models/bge-base-en-v1.5", device="cpu", local_files_only=True)
+        try:
+            model_path = "./models/bge-base-en-v1.5"
+            if not os.path.exists(model_path):
+                raise FileNotFoundError
+
+            self.sentence_model = SentenceTransformer(
+                model_path,
+                device="cpu",
+                local_files_only=True
+            )
+        except Exception:
+            print("⚠️ Local embedding model not found. Downloading...")
+            self.sentence_model = SentenceTransformer("BAAI/bge-base-en-v1.5")
+            os.makedirs("./models", exist_ok=True)
+            self.sentence_model.save(model_path)
+            print("✅ Model cached locally.")
 
         self.cache_path = cache_dir
         # simple state/UT list for boosting
@@ -66,7 +82,6 @@ class FileSearchTool:
             "Lakshadweep": ["South Peninsula", "Arabian Sea", "Island regions"],
             "Dadra and Nagar Haveli and Daman and Diu": ["West Coast", "North West India"]
         }
-        import os
 
         if os.path.exists(self.cache_path):
             try:
@@ -92,10 +107,22 @@ class FileSearchTool:
 
     # ----------------------------------------------------------------
     def _recompute_and_save(self):
-        self.titles = [d["title"] for d in self.family_index]
-        self.vecs = self.sentence_model.encode(self.titles, normalize_embeddings=True)
-        np.savez(self.cache_path + self.family_name, vecs=self.vecs, titles=self.titles)
-        print(f"💾 Saved new cache: {self.cache_path}")
+        import json
+        self.entries = []
+        texts = []
+        for d in self.family_index:
+            meta = [d.get("title", "")]
+            if "describe" in d:
+                meta.append(json.dumps(d["describe"]))
+            elif "preview" in d:
+                meta.append(d["preview"])
+            texts.append(" ".join(meta))
+            self.entries.append(d)
+        self.titles = [e.get("title", "") for e in self.entries]
+        self.vecs = self.sentence_model.encode(texts, normalize_embeddings=True)
+        np.savez(self.cache_path + self.family_name,
+                vecs=self.vecs, titles=self.titles)
+        print(f"💾 saved enhanced cache for {self.family_name}")
 
     # ------------------------------------------------------------------
     def _apply_boosts(self, query: str, title: str, base_score: float) -> float:
@@ -174,9 +201,9 @@ class FileSearchTool:
             Respond ONLY with the most relevant dataset number(s), separated by commas.
             Return -1 if none match.
             """
-            breakpoint()
+            # breakpoint()
             raw = self.llm.chat(prompt, temperature=0)
-            breakpoint()
+            # breakpoint()
             nums = [int(n) for n in re.findall(r"\d+", raw)] or [-1]
             selected = [
                 i for i in nums if 1 <= i
@@ -200,9 +227,9 @@ class FileSearchTool:
             Respond ONLY with the top 3 numbers (e.g., 2,5,1) in relevance order.
             If unsure, include fewer. No explanations. Choose at least 1.
         """
-        breakpoint()
+        # breakpoint()
         raw = self.llm.chat(prompt, temperature=0) # 25sec
-        breakpoint()
+        # breakpoint()
         nums = [int(n) for n in re.findall(r"\d+", raw)]
 
         # reattach metadata after reranking

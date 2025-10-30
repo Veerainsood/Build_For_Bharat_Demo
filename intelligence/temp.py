@@ -10,7 +10,7 @@ def resolve_live_download(title: str | None = None, resource_id: str | None = No
 
     r = requests.get(base, params=params, timeout=15)
     r.raise_for_status()
-    breakpoint()
+    # breakpoint()
     data = r.json()["records"][0]
     live_url = data.get("datafile_url")
     return live_url, data.get("title"), data.get("id")

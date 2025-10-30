@@ -1,72 +1,166 @@
-# 🇮🇳 Build for Bharat — Data Ingestion Layer
+# 🇮🇳 Build for Bharat — Intelligent Data Analysis Pipeline
 
-This repository implements a **local, agent-based data intelligence pipeline** for accessing live datasets from [data.gov.in](https://data.gov.in).  
-It powers the *BharatGPT* prototype — a self-contained Q&A system that connects user prompts to official Indian government datasets.
+A local, agent-based data intelligence system for discovering, retrieving, and analyzing live datasets from https://data.gov.in.  
+It powers BharatGPT — a fully offline Q&A platform that answers analytical questions using official Indian government datasets.
+
+Built By Veerain Sood
+Btech IIT Tirupati CSE
+CS22B049
+---
 
 ## 🌐 Overview
 
 ### 🔹 What it does
-- Fetches **live metadata** from data.gov.in using the hidden JSON API  
-  `https://www.data.gov.in/backend/dmspublic/v1/resources`
-- Builds a **local DuckDB index** of all datasets under:
-  - **Ministry of Agriculture and Farmers Welfare**
-  - **India Meteorological Department (IMD)**  
-- Enables **offline dataset search and retrieval** using titles and notes.
+- Connects directly to data.gov.in’s backend API:
+      https://www.data.gov.in/backend/dmspublic/v1/resources
+- Builds a local DuckDB + JSON index for sectors such as:
+  - Crop Development & Seed Production
+  - Research, Education & Biotechnology
+  - Temperature and Rainfall
+  - PM-KISAN Beneficiaries
+- Supports semantic retrieval, dataset reasoning, and step-wise execution using a local LLM.
 
-### 🔹 Why it matters
-This forms the foundation for a fully local, transparent AI system that can:
-> *“Answer questions about Indian datasets — without internet, without APIs, and without scraping.”*
+---
 
 ## 🧩 Architecture
-```
-bharatgpt/
-├── connectors/
-│   └── ogdp_scraper.py          ← Fetches metadata from data.gov.in
-├── indexer/
-│   ├── metadata_index.py        ← DuckDB-based metadata store
-│   └── dataset_selector.py      ← Keyword/semantic dataset search
-├── demo/
-│   ├── demo_scraper.py          ← Builds the initial local index
-│   └── demo_query.py            ← Tests dataset retrieval
-├── data/
-│   └── ogdp_index.db            ← Local DuckDB database (auto-created)
-└── utils/
-    └── helpers.py               ← Utility functions (timestamp, I/O)
-```
 
-## ⚙️ Usage
+      Build_For_Bharat/
+      ├── dataHandlers/
+      │   ├── connectors/
+      │   │   └── ogdp_scraper.py          ← Pulls datasets metadata from data.gov.in
+      │   ├── indexer/
+      │   │   ├── metadata_index.py        ← Builds and merges DuckDB metadata indices
+      │   │   └── dataset_selector.py      ← Handles dataset-family classification
+      │   ├── llm_tools/
+      │   │   ├── dataframeFetcher.py      ← Loads datasets into pandas DataFrames
+      │   │   └── ollama_utils.py          ← Manages local model sessions (Ollama)
+      │   ├── analyzers/
+      │   │   └── runAnaysis.py            ← Executes LLM-generated function sequences
+      │   ├── agents/
+      │   │   ├── head1_planner.py         ← Generates analysis plan
+      │   │   ├── head3_summarizer.py      ← Summarizes analytical results
+      │   │   └── selfCritique.py          ← Registry + dataset introspection
+      │   └── intelligence/
+      │       └── backend.py               ← FastAPI streaming backend
+      │
+      ├── bharat-ui/                       ← React frontend (Vite + Tailwind)
+      │   ├── src/App.jsx                  ← Animated chat interface
+      │   └── src/bharat.css               ← Obsidian-glass UI theme
+      └── models/
+          └── all-MiniLM-L6-v2             ← Local embedding model cache
 
-### 1️⃣ Setup
-```bash
-pip install duckdb requests pandas
-```
-### 2️⃣ Run the scraper
-```bash
-python -m dataHandlers.demo.demo_scraper
-```
-This populates `data/ogdp_index.db` with live datasets from both ministries.
+---
 
-### 3️⃣ Query datasets
-```bash
-python -m dataHandlers.connectors.temp
-```
-or
-```python
-from dataHandlers.indexer.dataset_selector import DatasetSelector
+## ⚙️ Setup & Installation
 
-selector = DatasetSelector()
-results = selector.search("rainfall data 2025", limit=5)
-for r in results:
-    print(r["title"], "->", r["id"])
-```
-## 🧠 Next Steps
-- [ ] Add **semantic embeddings** for intelligent dataset selection  
-- [ ] Add **DataFetcher** (load CSV/JSON into pandas)  
-- [ ] Add **Analyzer Agent** (aggregate, summarize, visualize)  
-- [ ] Integrate with a local LLM (Mistral / Phi / Ollama)  
-- [ ] Build CLI / web chat interface
+### 1️⃣ Install dependencies
 
-## 📦 Local Data Policy
-All dataset metadata and content are fetched from public data.gov.in resources and stored locally for research and development purposes.  
-This system performs no unauthorized scraping or login-based access.
-"""
+      pip install -r requirements.txt
+
+Core dependencies:
+
+      fastapi uvicorn duckdb pandas sentence-transformers ollama
+
+---
+
+### 2️⃣ Install Ollama
+
+Download from https://ollama.com/download  
+Once installed, pull the required models:
+
+      ollama pull mistral-nemo:12b
+      ollama pull qwen2.5:7b
+      ollama pull qwen2.5:14b
+      ollama pull phi3:mini
+
+🧠 These models power the Head-1 Planner, Head-2 Executor, and Head-3 Summarizer modules.
+
+---
+
+## 🧠 SentenceTransformer Auto-Installer
+
+In dataHandlers/llm_tools/embeddings.py (or wherever you initialize embeddings):
+
+      from sentence_transformers import SentenceTransformer
+      import os
+
+      try:
+          model_path = "./models/all-MiniLM-L6-v2"
+          if not os.path.exists(model_path):
+              raise FileNotFoundError
+
+          self.sentence_model = SentenceTransformer(
+              model_path,
+              device="cpu",
+              local_files_only=True
+          )
+      except Exception:
+          print("⚠️ Local embedding model not found. Downloading...")
+          self.sentence_model = SentenceTransformer("all-MiniLM-L6-v2")
+          os.makedirs("./models", exist_ok=True)
+          self.sentence_model.save("./models/all-MiniLM-L6-v2")
+          print("✅ Model cached locally.")
+
+This ensures your embedding model is automatically downloaded and cached once.
+
+---
+
+## 🚀 Running the System
+
+### 1️⃣ Start Ollama
+
+      ollama serve
+
+### 2️⃣ Start the backend
+
+      cd Build_For_Bharat
+      uvicorn intelligence.backend:app --reload --port 8000
+
+### 3️⃣ Start the frontend
+
+      cd bharat-ui
+      npm install
+      npm run dev
+
+Then open http://localhost:5173
+
+---
+
+## 💬 Query Flow
+
+User enters:
+
+      "Compare rainfall with wheat yield in Maharashtra between 2015–2020"
+
+Backend pipeline executes:
+
+      Head-1 Planner: Generate analytical plan
+      Head-2 Executor: Run sequential dataset operations
+      Head-3 Summarizer: Produce final insight
+
+Frontend displays live streamed updates for each stage in translucent boxes.
+
+---
+
+## 🧱 Local-Only Policy
+
+- All operations run entirely offline once datasets are cached.
+- Datasets are fetched from public endpoints only (no scraping or login).
+- Models are locally hosted through Ollama.
+- No cloud dependency at any stage.
+
+---
+
+## 🪄 Roadmap
+
+- Add charting and visualization in the UI (Plotly / Chart.js)
+- Integrate voice input and speech summary
+- Build agent registry for modular dataset families
+- Add auto-dataset updater for new data.gov.in releases
+
+---
+
+## 🏁 Credits
+
+Developed under the Build for Bharat Fellowship  
+Leveraging open Indian datasets to enable transparent, sovereign AI.

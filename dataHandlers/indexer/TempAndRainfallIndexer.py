@@ -1,7 +1,7 @@
 import duckdb, json, re
 from collections import defaultdict
 from pathlib import Path
-
+import pandas as pd
 DB_PATH = "dataHandlers/data/ogdp_index.db"
 ROOT_DIR = Path("dataHandlers/data/sectors")
 OUT_PATH = ROOT_DIR / "sector_index.json"
@@ -52,6 +52,38 @@ EXTRA_EARTH_DATASETS = [
 def safe_name(name: str) -> str:
     return re.sub(r"[^a-z0-9_]", "", name.lower().replace(" ", "_"))
 
+# -------------------------------------------------------------------
+def describe_file(file_path: Path, max_cols=6, max_rows=1, max_uniques=5):
+    try:
+        if file_path.suffix.lower() == ".csv":
+            df = pd.read_csv(file_path)
+        elif file_path.suffix.lower() in [".xls", ".xlsx"]:
+            df = pd.read_excel(file_path)
+        elif file_path.suffix.lower() == ".json":
+            df = pd.read_json(file_path)
+        else:
+            return None
+
+        cols = list(df.columns)[:max_cols]
+        desc = {
+            "shape": df.shape,
+            "columns": cols,
+            "sample": df.head(max_rows).to_dict(orient="records")
+        }
+
+        uniques = {}
+        for c in cols:
+            if df[c].dtype == "object":
+                vals = df[c].dropna().unique()[:max_uniques]
+                uniques[c] = vals.tolist() if hasattr(vals, "tolist") else list(vals)
+        if uniques:
+            desc["unique_values"] = uniques
+
+        return desc
+    except Exception as e:
+        return {"error": str(e)}
+
+# -------------------------------------------------------------------
 def build_science_subsectors():
     con = duckdb.connect(DB_PATH, read_only=True)
     rows = con.execute("""
@@ -60,10 +92,7 @@ def build_science_subsectors():
         WHERE lower(sector) LIKE '%science%'
     """).fetchall()
 
-
     earth_map = []
-
-    # append missing legacy datasets
     earth_map.extend(EXTRA_EARTH_DATASETS)
     idx = len(EXTRA_EARTH_DATASETS)
     for dataset_id, title, sector_str in rows:
@@ -72,20 +101,30 @@ def build_science_subsectors():
             idx += 1
 
     # deduplicate by id
-    seen = set()
-    deduped = []
+    seen, deduped = set(), []
     for e in earth_map:
         if e["id"] not in seen:
             deduped.append(e)
             seen.add(e["id"])
 
+    # enrich each entry with descriptor if local file exists
+    family_name = "Temperature and Rainfall"
+    data_dir = Path("dataHandlers/data") / family_name
+    for entry in deduped:
+        for ext in [".csv", ".xls", ".xlsx", ".json"]:
+            f = data_dir / f"{entry['index']}{ext}"
+            if f.exists():
+                entry["describe"] = describe_file(f)
+                break
+
     ROOT_DIR.mkdir(parents=True, exist_ok=True)
     earth_file = ROOT_DIR / "temperature_and_rainfall.json"
-    earth_file.write_text(json.dumps({"Temperature and Rainfall": deduped}, indent=2))
+    earth_file.write_text(json.dumps({family_name: deduped}, indent=2))
 
-    OUT_PATH.write_text(json.dumps({"Temperature and Rainfall": str(earth_file)}, indent=2))
+    OUT_PATH.write_text(json.dumps({family_name: str(earth_file)}, indent=2))
     print(f"✅ Wrote {len(deduped)} total Earth+Atmosphere datasets to {earth_file}")
 
+# -------------------------------------------------------------------
 def main():
     build_science_subsectors()
 

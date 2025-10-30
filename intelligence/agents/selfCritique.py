@@ -35,7 +35,7 @@ class DatasetRegistry:
         cat_cols = df.select_dtypes(exclude=[np.number]).columns
         for col in cat_cols:
             if df[col].isna().any():
-                df[col] = df[col].fillna(df[col].mode().iloc[0])
+                df[col].fillna(df[col].mode(), inplace=True)
 
         self.datasets[name] = df
 
@@ -122,7 +122,7 @@ class SelfCritiqueAgent:
             print(f"\n===================== Attempt {attempt} =====================")
             result = sandbox.run(code)
             sandbox.sync_registry()
-            breakpoint()
+            # breakpoint()
             if result["success"]:
                 print("✅ Execution successful.")
                 print(result["stdout"])
