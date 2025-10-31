@@ -80,11 +80,33 @@ class DatasetSearchTool:
     def select(self, query: str):
         selected = self.retrieve_relevant_families(query)
 
-        # if embeddings find strong match(es), skip LLM
+        # ---- Enforce PM-KISAN logic ----
+        pmkisan_keywords = [
+            "beneficiary", "beneficiaries", "farmer", "farmers",
+            "pm kisan", "kisan yojana", "installment", "scheme",
+            "direct benefit", "dbt", "payout", "transfer", "credit"
+        ]
+
+        def mentions_pmkisan_context(q: str) -> bool:
+            q_lower = q.lower()
+            return any(kw in q_lower for kw in pmkisan_keywords)
+
+        # If PM-KISAN was picked but the query isn't about personal benefits, replace it
+        if "Beneficiaries (PM-KISAN)" in selected and not mentions_pmkisan_context(query):
+            selected = [s for s in selected if s != "Beneficiaries (PM-KISAN)"]
+            # Replace with Crops dataset (fallback)
+            if "Crop Development & Seed Production" not in selected:
+                selected.append("Crop Development & Seed Production")
+
+        # Never return empty list
+        if not selected or selected == [-1]:
+            selected = ["Crop Development & Seed Production"]
+
+        # ---- If embeddings find strong match(es), skip LLM ----
         if selected != [-1]:
             return {"selected_datasets": selected}
 
-        # else fallback to LLM reasoning
+        # ---- Else fallback to LLM reasoning ----
         alias_lines = "\n".join(
             f"{i}. {name} — keywords: {', '.join(keywords)}"
             for i, (name, keywords) in enumerate(self.aliases.items(), start=1)
@@ -97,7 +119,7 @@ class DatasetSearchTool:
         INSTRUCTIONS:
         - Output ONLY dataset IDs.
         - NO text, NO explanation, NO punctuation.
-        - If unsure, output -1.
+        - If unsure, output at least one dataset
         - If multiple topics, output all relevant IDs.
 
         DATASETS:
@@ -105,7 +127,7 @@ class DatasetSearchTool:
 
         Examples:
         Q: "rainfall effect on rice yield"  -> 5 3
-        Q: "number of PM Kisan beneficiaries in UP" -> 9
+        Q: "number of PM Kisan beneficiaries in UP" -> 1
         Q: "sugarcane production by district in Maharashtra" -> 3
         Q: "compare crop data Maharashtra vs Karnataka" -> 3
         Q: "education scheme growth in Bihar" -> -1
@@ -113,17 +135,26 @@ class DatasetSearchTool:
         User query: "{query}"
         Answer:
         """
-        # breakpoint()
-        raw = raw = ollama.chat(
+        raw = ollama.chat(
             model=self.model,
-            messages=[{"role": "system", "content": "Return ONLY numbers. No text."},
-                    {"role": "user", "content": prompt}]
+            messages=[
+                {"role": "system", "content": "Return ONLY numbers. No text."},
+                {"role": "user", "content": prompt},
+            ],
         ).get("message", {}).get("content", "").strip()
-        # breakpoint()
+
         ids = self._extract_numbers(raw)
         valid = [self.dataset_ids[i] for i in ids if i in self.dataset_ids]
+
+        # Apply PM-KISAN logic again post-LLM
+        if "Beneficiaries (PM-KISAN)" in valid and not mentions_pmkisan_context(query):
+            valid = [v for v in valid if v != "Beneficiaries (PM-KISAN)"]
+            if "Crop Development & Seed Production" not in valid:
+                valid.append("Crop Development & Seed Production")
+
         if not valid:
-            return {"selected_datasets": [-1]}
+            valid = ["Crop Development & Seed Production"]
+
         return {"selected_datasets": valid}
 
     # ---- utils ----

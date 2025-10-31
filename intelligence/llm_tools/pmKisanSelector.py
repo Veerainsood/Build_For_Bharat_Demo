@@ -23,22 +23,7 @@ class PMKisanSelector:
         self.family_name = "Beneficiaries_(PM_KISAN)"
         self.cache_file = os.path.join(cache_dir, f"{self.family_name}.npz")
         self.states = list(root_json["states"].keys())
-        
-        if os.path.exists(self.cache_file):
-            try:
-                if self._cache_valid():
-                    cached = np.load(self.cache_file, allow_pickle=True)
-                    self.state_vecs = cached["vecs"]
-                    print(f"✅ Loaded cached embeddings for {self.family_name}")
-                else:
-                    print(f"⚠️ Cache outdated for {self.family_name} — recomputing...")
-                    self._recompute_and_save()
-            except Exception as e:
-                print(f"⚠️ Cache read error for {self.family_name}: {e}. Recomputing...")
-                self._recompute_and_save()
-        else:
-            print(f"🆕 No cache found for {self.family_name}, computing embeddings...")
-            self._recompute_and_save()
+        self._recompute_and_save()
 
     # ----------------------------------------------------------------
     def _cache_valid(self):
@@ -63,7 +48,56 @@ class PMKisanSelector:
         sims = np.dot(self.state_vecs, qvec)
         idx = np.argmax(sims)
         if sims[idx] < threshold:
-            return {"state": -1}
+            """
+            Let LLM pick the most relevant state index from the list.
+            Returns: {"state": <state_name>} or {"state": -1}
+            """
+
+            # Construct numbered state list
+            state_list_text = "\n".join([f"{i+1}. {s}" for i, s in enumerate(self.states)])
+
+            prompt = f"""
+            You are a classification assistant.
+            Pick the most relevant STATE INDEX from the list below based on the user query.
+            - Only return the number.
+            - If no clear match, return -1.
+
+            STATES:
+            {state_list_text}
+
+            Example:
+            Q: beneficiaries in Guntur district -> 26
+            Q: farmers in Ladakh -> 32
+            Q: rainfall in Delhi -> 12
+            Q: crops in Nicobar district -> 33
+
+            User query: "{query}"
+            Answer:
+            """
+
+            try:
+                resp = ollama.chat(
+                    model="qwen2.5:7b",
+                    messages=[
+                        {"role": "system", "content": "Return only a number."},
+                        {"role": "user", "content": prompt}
+                    ],
+                ).get("message", {}).get("content", "").strip()
+
+                # Extract numbers safely
+                nums = re.findall(r"\d+", resp)
+                if not nums:
+                    return {"state": self.states[0]}
+
+                idx = int(nums[0]) - 1
+                if idx < 0 or idx >= len(self.states):
+                    return {"state": self.states[0]}
+
+                return {"state": self.states[idx]}
+
+            except Exception as e:
+                return {"state": self.states[0]}
+
         return {"state": self.states[idx]}
 
     # --- Stage 2: district/year/instalment selection within state ---
@@ -118,6 +152,7 @@ class PMKisanSelector:
 
 
     def select(self, query):
+        # breakpoint()
         state_res = self.select_state(query)
         if state_res["state"] == -1:
             return {"selected_files": [-1]}
