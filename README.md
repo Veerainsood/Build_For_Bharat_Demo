@@ -1,7 +1,11 @@
-# 🇮🇳 Build for Bharat — Intelligent Data Analysis Pipeline
-<img width="2871" height="1622" alt="Screenshot_20251107_221108" src="https://github.com/user-attachments/assets/05abc79f-0c14-4c19-b52f-de0b5e9b162b" /><br><br>
+# Build for Bharat Project Samarth— Intelligent Data Analysis Pipeline
+<img width="2871" height="1622" alt="Build For Bharat Samarth UI" src="https://github.com/user-attachments/assets/05abc79f-0c14-4c19-b52f-de0b5e9b162b" /><br><br>
 A local, agent-based data intelligence system for discovering, retrieving, and analyzing live datasets from https://data.gov.in.  
-It powers BharatGPT — a fully offline Q&A platform that answers analytical questions using official Indian government datasets.
+
+Demonstration Video is given below, which explains the fully functioning pipeline along with design decesions taken
+<video width="2871" height="1622" alt="Demonstration Video" src="https://github.com/user-attachments/assets/76de76df-f92f-443a-9a1e-612734f061c8"/>
+
+Enjoy!
 
 Built By Veerain Sood
 Btech IIT Tirupati CSE
